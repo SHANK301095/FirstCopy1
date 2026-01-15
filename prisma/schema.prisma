@@ -1,0 +1,204 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum OrderStatus {
+  NEW
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum CityTier {
+  METRO
+  TIER1
+  TIER2
+  TIER3
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  addresses Address[]
+  orders    Order[]
+  reviews   Review[]
+}
+
+model Address {
+  id        String   @id @default(cuid())
+  userId    String
+  line1     String
+  line2     String?
+  city      String
+  state     String
+  pincode   String
+  country   String   @default("IN")
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Product {
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  description   String
+  productLine   String
+  festivalTags  String[]
+  dietaryTags   String[]
+  ecoFlags      String[]
+  ingredients   String?
+  allergens     String?
+  shelfLife     String?
+  storage       String?
+  images        String[]
+  variants      Variant[]
+  reviews       Review[]
+  questions     Question[]
+  createdAt     DateTime  @default(now())
+}
+
+model Variant {
+  id          String   @id @default(cuid())
+  productId   String
+  sku         String   @unique
+  name        String
+  price       Int
+  compareAt   Int?
+  stock       Int
+  product     Product  @relation(fields: [productId], references: [id])
+  orderItems  OrderItem[]
+  batches     Batch[]
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  userId    String
+  status    OrderStatus @default(NEW)
+  total     Int
+  createdAt DateTime    @default(now())
+  user      User        @relation(fields: [userId], references: [id])
+  items     OrderItem[]
+  auditLogs AuditLog[]
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  variantId   String
+  quantity    Int
+  unitPrice   Int
+  batchCode   String?
+  order       Order    @relation(fields: [orderId], references: [id])
+  variant     Variant  @relation(fields: [variantId], references: [id])
+}
+
+model BacklogItem {
+  id          String   @id
+  title       String
+  category    String
+  priority    String
+  status      String   @default("Planned")
+  createdAt   DateTime @default(now())
+}
+
+model Setting {
+  key       String @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model Serviceability {
+  id      String  @id @default(cuid())
+  pincode String  @unique
+  city    String
+  state   String
+  tier    CityTier
+}
+
+model CutoffRule {
+  id          String   @id @default(cuid())
+  festival    String
+  cityTier    CityTier
+  cutoffDate  DateTime
+  message     String
+}
+
+model Batch {
+  id         String   @id @default(cuid())
+  variantId  String
+  lotCode    String
+  expiryDate DateTime
+  quantity   Int
+  variant    Variant  @relation(fields: [variantId], references: [id])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String
+  action    String
+  entity    String
+  entityId  String
+  createdAt DateTime @default(now())
+  order     Order?   @relation(fields: [entityId], references: [id])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  userId    String
+  rating    Int
+  comment   String
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  productId String
+  question  String
+  answer    String?
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model LoyaltyLedger {
+  id        String   @id @default(cuid())
+  userId    String
+  points    Int
+  reason    String
+  createdAt DateTime @default(now())
+}
+
+model Referral {
+  id        String   @id @default(cuid())
+  referrerId String
+  refereeEmail String
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+}
+
+model Experiment {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  name      String
+  status    String   @default("DRAFT")
+  createdAt DateTime @default(now())
+}
