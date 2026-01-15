@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum OrderStatus {
+  CREATED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  orders    Order[]
+  addresses Address[]
+}
+
+model Address {
+  id        String   @id @default(cuid())
+  userId    String
+  line1     String
+  city      String
+  state     String
+  pincode   String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  description   String
+  productLine   String
+  festivalTags  String
+  dietaryTags   String
+  ecoFlags      String
+  ingredients   String
+  allergens     String
+  shelfLife     String
+  storage       String
+  images        String
+  createdAt     DateTime @default(now())
+  variants      Variant[]
+}
+
+model Variant {
+  id        String  @id @default(cuid())
+  productId String
+  sku       String
+  name      String
+  price     Int
+  compareAt Int
+  stock     Int
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Order {
+  id         String      @id @default(cuid())
+  userId     String
+  status     OrderStatus @default(CREATED)
+  total      Int
+  createdAt  DateTime    @default(now())
+  user       User        @relation(fields: [userId], references: [id])
+  items      OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  variantId String
+  quantity  Int
+  price     Int
+  order     Order   @relation(fields: [orderId], references: [id])
+}
+
+model BacklogItem {
+  id        String   @id
+  title     String
+  category  String
+  priority  String
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  key   String @id
+  value String
+}
+
+model ServiceablePincode {
+  id      String @id @default(cuid())
+  pincode String @unique
+  city    String
+  state   String
+}
+
+model CutoffRule {
+  id        String @id @default(cuid())
+  festival  String
+  cityTier  String
+  cutoffIso String
+}
+
+model BatchLot {
+  id          String @id @default(cuid())
+  sku         String
+  batchCode   String
+  expiryDate  DateTime
+  receivedAt  DateTime @default(now())
+}
+
+model SupplierScorecard {
+  id           String @id @default(cuid())
+  supplierName String
+  onTimeRate   Float
+  defectRate   Float
+  responseTime Float
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String
+  action    String
+  createdAt DateTime @default(now())
+  metadata  String
+}
+
+model Experiment {
+  id        String @id @default(cuid())
+  name      String
+  status    String
+  createdAt DateTime @default(now())
+}
+
+model LoyaltyPoint {
+  id        String @id @default(cuid())
+  userId    String
+  points    Int
+  reason    String
+  createdAt DateTime @default(now())
+}
