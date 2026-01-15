@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Corporate Gifting{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>Corporate gifting</h1>
+      <p>Bulk workflows, custom sleeves, and GST-ready invoices.</p>
+    </div>
+    <div class="grid">
+      {% for bundle in bundles %}
+      <div class="card">
+        <h3>{{ bundle.name }}</h3>
+        <p>{{ bundle.description }}</p>
+        <p class="muted">GST invoices included</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>Corporate catalog is being updated. Contact sales for immediate needs.</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="card">
+      <h3>Corporate inquiry</h3>
+      <p class="muted">Needs Setup: CRM and email notifications.</p>
+      <form class="form">
+        <label>Company name</label>
+        <input type="text" placeholder="SeasonVille Partner" />
+        <label>Requirement</label>
+        <textarea placeholder="Qty, budget, delivery city"></textarea>
+        <button class="btn" type="button">Submit inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

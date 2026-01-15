@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Roadmap{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>6-month roadmap</h1>
+    <div class="grid">
+      {% for item in plan_items %}
+      <div class="card">
+        <h3>{{ item.phase }}</h3>
+        <p><strong>{{ item.title }}</strong></p>
+        <p class="muted">Timeline: {{ item.timeline }}</p>
+        <p>Status: {{ item.status }}</p>
+        <p>{{ item.notes }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

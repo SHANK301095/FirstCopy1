@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | QC Checklist{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>QC gates</h1>
+    <div class="list">
+      {% for check in checks %}
+      <div class="list-item">
+        <div>
+          <strong>{{ check.product_name }}</strong>
+          <p class="muted">Lot {{ check.lot_no }} · {{ check.gate }}</p>
+        </div>
+        <div>
+          <span>{{ check.status }}</span>
+          <span class="muted">{{ check.checked_at }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No QC checks recorded.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | {{ product.name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container product-grid">
+    <div>
+      <img class="product-image" src="{{ product.image_url }}" alt="{{ product.name }}" />
+    </div>
+    <div>
+      <span class="eyebrow">{{ product.product_line }}</span>
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.description }}</p>
+      <p class="price">₹{{ product.price }}</p>
+      <div class="pill-row">
+        <span class="pill">{{ product.dietary }}</span>
+        <span class="pill">{{ product.eco_flags }}</span>
+      </div>
+      <form method="post" action="/cart/add/{{ product.id }}">
+        <button class="btn" type="submit">Add to cart</button>
+      </form>
+      <div class="divider"></div>
+      <h3>Product details</h3>
+      <ul>
+        <li><strong>Shelf life:</strong> {{ product.shelf_life_days }} days</li>
+        <li><strong>Storage:</strong> {{ product.storage }}</li>
+        <li><strong>Ingredients:</strong> {{ product.ingredients }}</li>
+        <li><strong>Allergens:</strong> {{ product.allergens }}</li>
+        <li><strong>Festival tags:</strong> {{ product.festival_tags }}</li>
+      </ul>
+      <h3>Packaging rules</h3>
+      <ul>
+        {% for rule in packaging_rules %}
+          <li>{{ rule }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <h2>Variants</h2>
+    <div class="grid">
+      {% for variant in variants %}
+      <div class="card">
+        <h3>{{ variant.variant_name }}</h3>
+        <p>SKU: {{ variant.sku }}</p>
+        <p class="price">₹{{ variant.price_override }}</p>
+        <p class="muted">Stock: {{ variant.stock_qty }}</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No variants for this product yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Reviews (moderated)</h2>
+    <div class="grid">
+      {% for review in reviews %}
+      <div class="card">
+        <h4>{{ review.title }}</h4>
+        <p class="muted">Rating: {{ review.rating }}/5</p>
+        <p>{{ review.body }}</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No reviews yet. Admins approve new reviews before publishing.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

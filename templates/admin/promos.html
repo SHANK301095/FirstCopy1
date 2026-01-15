@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Promotions{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Promotions</h1>
+    <div class="list">
+      {% for promo in promos %}
+      <div class="list-item">
+        <div>
+          <strong>{{ promo.code }}</strong>
+          <p class="muted">{{ promo.description }}</p>
+        </div>
+        <div>
+          <span>{{ promo.discount_type }} · {{ promo.value }}</span>
+          <span class="pill">{{ promo.active and 'Active' or 'Inactive' }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No promotions created yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
