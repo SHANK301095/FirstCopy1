@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Content Hub{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Content hub</h1>
+    <div class="grid">
+      {% for page in pages %}
+      <div class="card">
+        <h3>{{ page.title }}</h3>
+        <p class="muted">{{ page.category }}</p>
+        <p>{{ page.body }}</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No guides published yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

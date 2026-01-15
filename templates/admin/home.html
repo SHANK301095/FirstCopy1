@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Admin{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>Admin dashboard</h1>
+      <p>Manage catalog, inventory, orders, QC, and roadmap.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/admin/inventory">
+        <h3>Inventory & FEFO</h3>
+        <p>Batch tracking and expiry-based picking.</p>
+      </a>
+      <a class="card" href="/admin/catalog">
+        <h3>Catalog & pricing</h3>
+        <p>Products, variants, and pricing.</p>
+      </a>
+      <a class="card" href="/admin/promos">
+        <h3>Promotions</h3>
+        <p>Coupons and offers.</p>
+      </a>
+      <a class="card" href="/admin/content">
+        <h3>Content</h3>
+        <p>Guides, FAQs, and legal pages.</p>
+      </a>
+      <a class="card" href="/admin/qc">
+        <h3>QC checklist</h3>
+        <p>Gate A-D approvals with audit trail.</p>
+      </a>
+      <a class="card" href="/admin/orders">
+        <h3>Orders</h3>
+        <p>Order lifecycle and fulfillment.</p>
+      </a>
+      <a class="card" href="/admin/reviews">
+        <h3>Reviews moderation</h3>
+        <p>Approve or reject customer reviews.</p>
+      </a>
+      <a class="card" href="/admin/returns">
+        <h3>Returns</h3>
+        <p>Food vs non-food policy enforcement.</p>
+      </a>
+      <a class="card" href="/admin/backlog">
+        <h3>Backlog</h3>
+        <p>{{ backlog_count }} items tracked.</p>
+      </a>
+      <a class="card" href="/admin/plan">
+        <h3>6-month plan</h3>
+        <p>Operational roadmap view.</p>
+      </a>
+      <a class="card" href="/admin/build-report">
+        <h3>Build report</h3>
+        <p>What is done vs needs setup.</p>
+      </a>
+    </div>
+    <div class="card">
+      <h3>Latest orders</h3>
+      {% for order in orders %}
+        <p>#{{ order.id }} · {{ order.status }} · ₹{{ order.total_amount }}</p>
+      {% else %}
+        <p>No orders yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

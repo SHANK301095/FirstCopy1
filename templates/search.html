@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Search{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Search</h1>
+    {% if query %}
+      <p class="muted">Results for "{{ query }}"</p>
+    {% else %}
+      <p class="muted">Start typing to see results.</p>
+    {% endif %}
+    <div class="grid">
+      {% for product in results %}
+      <div class="card">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">₹{{ product.price }}</p>
+        <a class="btn-outline" href="/product/{{ product.id }}">View product</a>
+      </div>
+      {% else %}
+        {% if query %}
+        <div class="card">
+          <p>No results found. Try these premium picks instead.</p>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if query and not results %}
+    <div class="section">
+      <h2>Suggested gifts</h2>
+      <div class="grid">
+        {% for product in suggestions %}
+        <div class="card">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.product_line }}</p>
+          <p class="price">₹{{ product.price }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

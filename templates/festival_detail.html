@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | {{ festival.name }}{% endblock %}
+{% block content %}
+<section class="hero compact">
+  <div class="container">
+    <span class="eyebrow">{{ festival.region }} · Month {{ festival.month_index }}</span>
+    <h1>{{ festival.name }}</h1>
+    <p>{{ festival.description }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Hero bundles</h2>
+    <div class="grid">
+      {% for bundle in bundles %}
+      <div class="card">
+        <h3>{{ bundle.name }}</h3>
+        <p>{{ bundle.description }}</p>
+        <p class="muted">{{ bundle.pricing_rule }}</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>Bundles are being curated. Check back soon.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <h2>Essentials for {{ festival.name }}</h2>
+    <div class="grid">
+      {% for product in products %}
+      <div class="card">
+        <img src="{{ product.image_url }}" alt="{{ product.name }}" class="card-image" />
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">₹{{ product.price }}</p>
+        <form method="post" action="/cart/add/{{ product.id }}">
+          <button class="btn" type="submit">Add to cart</button>
+        </form>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No products mapped yet. Merchandising team will update soon.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>FAQs</h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Delivery cutoff</h4>
+        <p>Cutoffs vary by pincode. Enter your pincode at checkout to confirm.</p>
+      </div>
+      <div class="card">
+        <h4>Gift wrap</h4>
+        <p>Add premium sleeves, message cards, and tamper-evident seals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

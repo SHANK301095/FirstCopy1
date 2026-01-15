@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Orders{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Orders</h1>
+    <div class="list">
+      {% for order in orders %}
+      <div class="list-item">
+        <div>
+          <strong>#{{ order.id }}</strong>
+          <p class="muted">{{ order.created_at }}</p>
+        </div>
+        <div>
+          <span>{{ order.status }}</span>
+          <span class="price">₹{{ order.total_amount }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No orders yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

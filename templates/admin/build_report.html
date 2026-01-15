@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Build Report{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Build report</h1>
+    <div class="grid">
+      <div class="card">
+        <h3>Completed</h3>
+        <ul>
+          <li>Festival hub + landing templates</li>
+          <li>Bundle builder + gift finder</li>
+          <li>Inventory batch tracking + FEFO view</li>
+          <li>QC checklist gates A-D</li>
+          <li>Checkout + order lifecycle + returns policy view</li>
+          <li>Admin backlog + roadmap</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Needs Setup</h3>
+        <ul>
+          {% for item in needs_setup %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Next steps</h3>
+        <ul>
+          {% for item in next_steps %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
