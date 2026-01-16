@@ -1,30 +1,21 @@
+import { Card } from "@/components/ui/card";
+
 export default function AccountPage() {
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>Your account</h1>
-      <section style={{ marginTop: "1rem" }}>
-        <h2>Orders</h2>
-        <p>No orders yet. Place your first festival order!</p>
-      </section>
-      <section style={{ marginTop: "1rem" }}>
-        <h2>Saved addresses</h2>
-        <p>Add a new address during checkout.</p>
-      </section>
-    </main>
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div className="rounded-3xl bg-white p-8 shadow-sm">
         <h1 className="text-3xl font-semibold">Account</h1>
         <p className="mt-2 text-slate-600">Profile, saved addresses, and order history.</p>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        <Card>
           <h2 className="text-lg font-semibold">Recent orders</h2>
           <p className="mt-2 text-sm text-slate-600">Demo order list placeholder.</p>
-        </div>
-        <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        </Card>
+        <Card>
           <h2 className="text-lg font-semibold">Addresses</h2>
           <p className="mt-2 text-sm text-slate-600">Add or edit shipping addresses.</p>
-        </div>
+        </Card>
       </div>
     </div>
   );

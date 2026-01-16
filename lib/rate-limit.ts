@@ -1,19 +1,22 @@
-const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
+const buckets = new Map<string, { count: number; start: number }>();
 
-export function checkRateLimit(key: string, limit: number, windowMs: number) {
+type RateLimitOptions = {
+  limit: number;
+  windowMs: number;
+};
+
+export function rateLimit(key: string, { limit, windowMs }: RateLimitOptions) {
   const now = Date.now();
-  const existing = rateLimitStore.get(key);
-
-  if (!existing || now > existing.resetAt) {
-    rateLimitStore.set(key, { count: 1, resetAt: now + windowMs });
-    return { allowed: true, remaining: limit - 1 };
+  const bucket = buckets.get(key) ?? { count: 0, start: now };
+  if (now - bucket.start > windowMs) {
+    bucket.count = 0;
+    bucket.start = now;
   }
-
-  if (existing.count >= limit) {
-    return { allowed: false, remaining: 0 };
+  bucket.count += 1;
+  buckets.set(key, bucket);
+  if (bucket.count > limit) {
+    const error = new Error("Too Many Requests");
+    (error as Error & { status?: number }).status = 429;
+    throw error;
   }
-
-  existing.count += 1;
-  rateLimitStore.set(key, existing);
-  return { allowed: true, remaining: limit - existing.count };
 }

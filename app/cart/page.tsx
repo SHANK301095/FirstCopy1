@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+
 const initialItems = [
-  { id: "festival-sweet-box", name: "SeasonVille Festive Sweet Box", price: 1299, qty: 1 },
+  { id: "festival-sweet-box", name: "SeasonVille Festive Sweet Box", price: 1299, qty: 1 }
 ];
 
 export default function CartPage() {
@@ -19,54 +22,51 @@ export default function CartPage() {
   const total = items.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>Your cart</h1>
-      {items.length === 0 ? (
-        <p>
-          Cart is empty. <Link href="/collections">Continue shopping</Link>
-        </p>
-      ) : (
-        <div>
-          {items.map((item) => (
-            <div
-              key={item.id}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: "1rem 0",
-                borderBottom: "1px solid #efe2d5",
-              }}
-            >
-              <div>
-                <strong>{item.name}</strong>
-                <p>₹{item.price}</p>
-              </div>
-              <input
-                type="number"
-                min={0}
-                value={item.qty}
-                onChange={(event) => updateQty(item.id, Number(event.target.value))}
-                style={{ width: 60 }}
-              />
-            </div>
-          ))}
-          <div style={{ marginTop: "1rem", fontWeight: 600 }}>Total: ₹{total}</div>
-          <Link href="/checkout" style={{ display: "inline-block", marginTop: "1rem" }}>
-            Proceed to checkout
-          </Link>
-        </div>
-      )}
-    </main>
-export default function CartPage() {
-  return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div className="rounded-3xl bg-white p-8 shadow-sm">
         <h1 className="text-3xl font-semibold">Your cart</h1>
         <p className="mt-2 text-slate-600">Cart state is stored in session for MVP.</p>
       </div>
-      <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-6 text-sm text-slate-600">
-        Empty cart state — add a product to continue checkout.
-      </div>
+
+      {items.length === 0 ? (
+        <Card className="border-dashed text-sm text-slate-600">
+          Cart is empty. <Link className="font-semibold text-brand-700" href="/collections">Continue shopping</Link>
+        </Card>
+      ) : (
+        <div className="space-y-4">
+          {items.map((item) => (
+            <Card key={item.id} className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <h2 className="text-lg font-semibold">{item.name}</h2>
+                <p className="text-sm text-slate-600">₹{item.price}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Input
+                  type="number"
+                  min={0}
+                  value={item.qty}
+                  onChange={(event) => updateQty(item.id, Number(event.target.value))}
+                  className="w-20"
+                />
+                <span className="text-sm font-semibold text-slate-700">₹{item.price * item.qty}</span>
+              </div>
+            </Card>
+          ))}
+
+          <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6">
+            <div>
+              <p className="text-sm text-slate-600">Estimated total</p>
+              <p className="text-xl font-semibold">₹{total}</p>
+            </div>
+            <Link
+              className="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-2 text-sm font-semibold text-white"
+              href="/checkout"
+            >
+              Proceed to checkout
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
