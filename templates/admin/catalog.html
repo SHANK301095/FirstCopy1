@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Catalog{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Catalog & pricing</h1>
+    <div class="list">
+      {% for product in products %}
+      <div class="list-item">
+        <div>
+          <strong>{{ product.name }}</strong>
+          <p class="muted">{{ product.product_line }}</p>
+        </div>
+        <div>
+          <span class="price">₹{{ product.price }}</span>
+          <span class="pill">{{ product.is_active and 'Active' or 'Paused' }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No products in catalog.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

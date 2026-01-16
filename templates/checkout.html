@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Checkout{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container checkout-grid">
+    <div>
+      <h1>Checkout</h1>
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+      <form method="post" class="form">
+        <label>Delivery date</label>
+        <input type="date" name="delivery_date" required />
+        <label>Pincode</label>
+        <input type="text" name="pincode" placeholder="560001" required />
+        <label>Gift message</label>
+        <textarea name="gift_message" placeholder="Write a festive note"></textarea>
+        <label class="checkbox">
+          <input type="checkbox" name="gift_wrap" /> Add gift wrap + message card
+        </label>
+        <label>Payment method</label>
+        <select name="payment_method">
+          <option value="UPI">UPI (Needs Setup)</option>
+          <option value="COD">Cash on Delivery</option>
+        </select>
+        <button class="btn" type="submit">Place order</button>
+      </form>
+    </div>
+    <aside class="card">
+      <h3>Order summary</h3>
+      {% if items %}
+        <ul>
+          {% for item in items %}
+            <li>{{ item.product_name }} × {{ item.qty }} — ₹{{ item.qty * item.price_each }}</li>
+          {% endfor %}
+        </ul>
+        <p class="price">Total: ₹{{ total }}</p>
+      {% else %}
+        <p>No items in cart.</p>
+      {% endif %}
+      <div class="divider"></div>
+      <h4>Pincode serviceability</h4>
+      {% if serviceability %}
+        <p>{{ serviceability.region }} · Cutoff {{ serviceability.cutoff_hour }}:00 hrs</p>
+      {% else %}
+        <p class="muted">Enter pincode to check delivery promise.</p>
+      {% endif %}
+      {% if cod_message %}
+        <p class="muted">{{ cod_message }}</p>
+      {% endif %}
+      <p class="tag">Payments: Needs Setup</p>
+      <p class="tag">Courier: Needs Setup</p>
+    </aside>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Returns{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Returns & replacements</h1>
+    <p class="muted">Food items: replacement-only within 48 hours. Non-food: 7-day return window.</p>
+    <div class="list">
+      {% for item in returns %}
+      <div class="list-item">
+        <div>
+          <strong>{{ item.product_name }}</strong>
+          <p class="muted">Reason: {{ item.reason_code }}</p>
+        </div>
+        <div>
+          <span>{{ item.status }}</span>
+          <span class="muted">Order {{ item.order_id }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No returns logged.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

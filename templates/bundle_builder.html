@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Bundle Builder{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>Bundle builder</h1>
+      <p>Pick 3 or more items. We auto-add a gift box and sleeve.</p>
+    </div>
+    <form method="post" class="grid">
+      {% for product in products %}
+      <label class="card selectable">
+        <input type="checkbox" name="product" value="{{ product.id }}" />
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.product_line }}</p>
+        <p class="price">₹{{ product.price }}</p>
+      </label>
+      {% endfor %}
+      <div class="card">
+        <h3>Bundle preview</h3>
+        {% if bundle_preview %}
+          {% if bundle_preview.error %}
+            <p class="error">{{ bundle_preview.error }}</p>
+          {% else %}
+            <ul>
+              {% for item in bundle_preview.items %}
+                <li>{{ item.name }} - ₹{{ item.price }}</li>
+              {% endfor %}
+            </ul>
+            <p class="price">Total: ₹{{ bundle_preview.total }}</p>
+            <p class="muted">{{ bundle_preview.message }}</p>
+          {% endif %}
+        {% else %}
+          <p>Select at least 3 items to see your bundle.</p>
+        {% endif %}
+        <button class="btn" type="submit">Build bundle</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

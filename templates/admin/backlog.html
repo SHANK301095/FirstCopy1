@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Backlog{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Backlog module</h1>
+    <p class="muted">Showing first 200 of 520 items.</p>
+    <div class="table">
+      <div class="table-row header">
+        <span>ID</span>
+        <span>Category</span>
+        <span>Priority</span>
+        <span>Status</span>
+        <span>Owner</span>
+      </div>
+      {% for item in items %}
+      <div class="table-row">
+        <span>{{ item.item_id }}</span>
+        <span>{{ item.category }}</span>
+        <span>{{ item.priority }}</span>
+        <span>{{ item.status }}</span>
+        <span>{{ item.owner }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

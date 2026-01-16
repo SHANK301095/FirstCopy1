@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Collections{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>Collections</h1>
+      <p>Browse by product line, recipient, or budget.</p>
+    </div>
+    <div class="grid">
+      {% for collection in collections %}
+      <div class="card">
+        <h3>{{ collection.title }}</h3>
+        <p class="muted">SeasonVille private label</p>
+        <a class="btn-outline" href="/collections?line={{ collection.slug }}">View line</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

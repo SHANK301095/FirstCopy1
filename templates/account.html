@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Account{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Account</h1>
+    <div class="grid">
+      <div class="card">
+        <h3>Profile</h3>
+        <p>{{ profile.name }}</p>
+        <p>{{ profile.phone }}</p>
+      </div>
+      <div class="card">
+        <h3>Addresses</h3>
+        {% for address in addresses %}
+          <p><strong>{{ address.label }}</strong> · {{ address.line1 }}, {{ address.city }} {{ address.pincode }}</p>
+        {% else %}
+          <p>No addresses saved.</p>
+        {% endfor %}
+      </div>
+      <div class="card">
+        <h3>Order history</h3>
+        {% for order in orders %}
+          <p>#{{ order.id }} · {{ order.status }} · ₹{{ order.total_amount }}</p>
+        {% else %}
+          <p>No orders yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

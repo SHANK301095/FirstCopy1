@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}SeasonVille{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="logo" href="/">SeasonVille</a>
+      <nav class="nav">
+        <a href="/festivals">Festivals</a>
+        <a href="/collections">Collections</a>
+        <a href="/bundle-builder">Bundle Builder</a>
+        <a href="/content">Guides</a>
+        <a href="/corporate">Corporate</a>
+        <a href="/support">Support</a>
+      </nav>
+      <form class="search" method="get" action="/search">
+        <input type="search" name="q" placeholder="Search gifts" list="search-suggestions" />
+        <datalist id="search-suggestions">
+          {% for suggestion in search_suggestions %}
+            <option value="{{ suggestion }}"></option>
+          {% endfor %}
+        </datalist>
+      </form>
+      <div class="nav-actions">
+        <a href="/account">Account</a>
+        <a class="btn-outline" href="/cart">Cart</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>SeasonVille Promise</h4>
+        <p>Private-label festival gifting crafted for India's moments.</p>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="/legal">Privacy & Terms</a>
+      </div>
+      <div>
+        <h4>Admin</h4>
+        <a href="/admin">Admin Dashboard</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
