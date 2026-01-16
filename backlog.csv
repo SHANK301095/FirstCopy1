@@ -1,0 +1,521 @@
+id,category,priority,title
+SV-WEB-001,Discovery,P2,Backlog item 1
+SV-WEB-002,Product Page,P3,Backlog item 2
+SV-WEB-003,Checkout,P1,Backlog item 3
+SV-WEB-004,Shipping,P2,Backlog item 4
+SV-WEB-005,Accounts,P3,Backlog item 5
+SV-WEB-006,Content/SEO,P1,Backlog item 6
+SV-WEB-007,Ops/QC/Inventory,P2,Backlog item 7
+SV-WEB-008,Admin/Analytics,P3,Backlog item 8
+SV-WEB-009,Security/Performance,P1,Backlog item 9
+SV-WEB-010,Discovery,P2,Backlog item 10
+SV-WEB-011,Product Page,P3,Backlog item 11
+SV-WEB-012,Checkout,P1,Backlog item 12
+SV-WEB-013,Shipping,P2,Backlog item 13
+SV-WEB-014,Accounts,P3,Backlog item 14
+SV-WEB-015,Content/SEO,P1,Backlog item 15
+SV-WEB-016,Ops/QC/Inventory,P2,Backlog item 16
+SV-WEB-017,Admin/Analytics,P3,Backlog item 17
+SV-WEB-018,Security/Performance,P1,Backlog item 18
+SV-WEB-019,Discovery,P2,Backlog item 19
+SV-WEB-020,Product Page,P3,Backlog item 20
+SV-WEB-021,Checkout,P1,Backlog item 21
+SV-WEB-022,Shipping,P2,Backlog item 22
+SV-WEB-023,Accounts,P3,Backlog item 23
+SV-WEB-024,Content/SEO,P1,Backlog item 24
+SV-WEB-025,Ops/QC/Inventory,P2,Backlog item 25
+SV-WEB-026,Admin/Analytics,P3,Backlog item 26
+SV-WEB-027,Security/Performance,P1,Backlog item 27
+SV-WEB-028,Discovery,P2,Backlog item 28
+SV-WEB-029,Product Page,P3,Backlog item 29
+SV-WEB-030,Checkout,P1,Backlog item 30
+SV-WEB-031,Shipping,P2,Backlog item 31
+SV-WEB-032,Accounts,P3,Backlog item 32
+SV-WEB-033,Content/SEO,P1,Backlog item 33
+SV-WEB-034,Ops/QC/Inventory,P2,Backlog item 34
+SV-WEB-035,Admin/Analytics,P3,Backlog item 35
+SV-WEB-036,Security/Performance,P1,Backlog item 36
+SV-WEB-037,Discovery,P2,Backlog item 37
+SV-WEB-038,Product Page,P3,Backlog item 38
+SV-WEB-039,Checkout,P1,Backlog item 39
+SV-WEB-040,Shipping,P2,Backlog item 40
+SV-WEB-041,Accounts,P3,Backlog item 41
+SV-WEB-042,Content/SEO,P1,Backlog item 42
+SV-WEB-043,Ops/QC/Inventory,P2,Backlog item 43
+SV-WEB-044,Admin/Analytics,P3,Backlog item 44
+SV-WEB-045,Security/Performance,P1,Backlog item 45
+SV-WEB-046,Discovery,P2,Backlog item 46
+SV-WEB-047,Product Page,P3,Backlog item 47
+SV-WEB-048,Checkout,P1,Backlog item 48
+SV-WEB-049,Shipping,P2,Backlog item 49
+SV-WEB-050,Accounts,P3,Backlog item 50
+SV-WEB-051,Content/SEO,P1,Backlog item 51
+SV-WEB-052,Ops/QC/Inventory,P2,Backlog item 52
+SV-WEB-053,Admin/Analytics,P3,Backlog item 53
+SV-WEB-054,Security/Performance,P1,Backlog item 54
+SV-WEB-055,Discovery,P2,Backlog item 55
+SV-WEB-056,Product Page,P3,Backlog item 56
+SV-WEB-057,Checkout,P1,Backlog item 57
+SV-WEB-058,Shipping,P2,Backlog item 58
+SV-WEB-059,Accounts,P3,Backlog item 59
+SV-WEB-060,Content/SEO,P1,Backlog item 60
+SV-WEB-061,Ops/QC/Inventory,P2,Backlog item 61
+SV-WEB-062,Admin/Analytics,P3,Backlog item 62
+SV-WEB-063,Security/Performance,P1,Backlog item 63
+SV-WEB-064,Discovery,P2,Backlog item 64
+SV-WEB-065,Product Page,P3,Backlog item 65
+SV-WEB-066,Checkout,P1,Backlog item 66
+SV-WEB-067,Shipping,P2,Backlog item 67
+SV-WEB-068,Accounts,P3,Backlog item 68
+SV-WEB-069,Content/SEO,P1,Backlog item 69
+SV-WEB-070,Ops/QC/Inventory,P2,Backlog item 70
+SV-WEB-071,Admin/Analytics,P3,Backlog item 71
+SV-WEB-072,Security/Performance,P1,Backlog item 72
+SV-WEB-073,Discovery,P2,Backlog item 73
+SV-WEB-074,Product Page,P3,Backlog item 74
+SV-WEB-075,Checkout,P1,Backlog item 75
+SV-WEB-076,Shipping,P2,Backlog item 76
+SV-WEB-077,Accounts,P3,Backlog item 77
+SV-WEB-078,Content/SEO,P1,Backlog item 78
+SV-WEB-079,Ops/QC/Inventory,P2,Backlog item 79
+SV-WEB-080,Admin/Analytics,P3,Backlog item 80
+SV-WEB-081,Security/Performance,P1,Backlog item 81
+SV-WEB-082,Discovery,P2,Backlog item 82
+SV-WEB-083,Product Page,P3,Backlog item 83
+SV-WEB-084,Checkout,P1,Backlog item 84
+SV-WEB-085,Shipping,P2,Backlog item 85
+SV-WEB-086,Accounts,P3,Backlog item 86
+SV-WEB-087,Content/SEO,P1,Backlog item 87
+SV-WEB-088,Ops/QC/Inventory,P2,Backlog item 88
+SV-WEB-089,Admin/Analytics,P3,Backlog item 89
+SV-WEB-090,Security/Performance,P1,Backlog item 90
+SV-WEB-091,Discovery,P2,Backlog item 91
+SV-WEB-092,Product Page,P3,Backlog item 92
+SV-WEB-093,Checkout,P1,Backlog item 93
+SV-WEB-094,Shipping,P2,Backlog item 94
+SV-WEB-095,Accounts,P3,Backlog item 95
+SV-WEB-096,Content/SEO,P1,Backlog item 96
+SV-WEB-097,Ops/QC/Inventory,P2,Backlog item 97
+SV-WEB-098,Admin/Analytics,P3,Backlog item 98
+SV-WEB-099,Security/Performance,P1,Backlog item 99
+SV-WEB-100,Discovery,P2,Backlog item 100
+SV-WEB-101,Product Page,P3,Backlog item 101
+SV-WEB-102,Checkout,P1,Backlog item 102
+SV-WEB-103,Shipping,P2,Backlog item 103
+SV-WEB-104,Accounts,P3,Backlog item 104
+SV-WEB-105,Content/SEO,P1,Backlog item 105
+SV-WEB-106,Ops/QC/Inventory,P2,Backlog item 106
+SV-WEB-107,Admin/Analytics,P3,Backlog item 107
+SV-WEB-108,Security/Performance,P1,Backlog item 108
+SV-WEB-109,Discovery,P2,Backlog item 109
+SV-WEB-110,Product Page,P3,Backlog item 110
+SV-WEB-111,Checkout,P1,Backlog item 111
+SV-WEB-112,Shipping,P2,Backlog item 112
+SV-WEB-113,Accounts,P3,Backlog item 113
+SV-WEB-114,Content/SEO,P1,Backlog item 114
+SV-WEB-115,Ops/QC/Inventory,P2,Backlog item 115
+SV-WEB-116,Admin/Analytics,P3,Backlog item 116
+SV-WEB-117,Security/Performance,P1,Backlog item 117
+SV-WEB-118,Discovery,P2,Backlog item 118
+SV-WEB-119,Product Page,P3,Backlog item 119
+SV-WEB-120,Checkout,P1,Backlog item 120
+SV-WEB-121,Shipping,P2,Backlog item 121
+SV-WEB-122,Accounts,P3,Backlog item 122
+SV-WEB-123,Content/SEO,P1,Backlog item 123
+SV-WEB-124,Ops/QC/Inventory,P2,Backlog item 124
+SV-WEB-125,Admin/Analytics,P3,Backlog item 125
+SV-WEB-126,Security/Performance,P1,Backlog item 126
+SV-WEB-127,Discovery,P2,Backlog item 127
+SV-WEB-128,Product Page,P3,Backlog item 128
+SV-WEB-129,Checkout,P1,Backlog item 129
+SV-WEB-130,Shipping,P2,Backlog item 130
+SV-WEB-131,Accounts,P3,Backlog item 131
+SV-WEB-132,Content/SEO,P1,Backlog item 132
+SV-WEB-133,Ops/QC/Inventory,P2,Backlog item 133
+SV-WEB-134,Admin/Analytics,P3,Backlog item 134
+SV-WEB-135,Security/Performance,P1,Backlog item 135
+SV-WEB-136,Discovery,P2,Backlog item 136
+SV-WEB-137,Product Page,P3,Backlog item 137
+SV-WEB-138,Checkout,P1,Backlog item 138
+SV-WEB-139,Shipping,P2,Backlog item 139
+SV-WEB-140,Accounts,P3,Backlog item 140
+SV-WEB-141,Content/SEO,P1,Backlog item 141
+SV-WEB-142,Ops/QC/Inventory,P2,Backlog item 142
+SV-WEB-143,Admin/Analytics,P3,Backlog item 143
+SV-WEB-144,Security/Performance,P1,Backlog item 144
+SV-WEB-145,Discovery,P2,Backlog item 145
+SV-WEB-146,Product Page,P3,Backlog item 146
+SV-WEB-147,Checkout,P1,Backlog item 147
+SV-WEB-148,Shipping,P2,Backlog item 148
+SV-WEB-149,Accounts,P3,Backlog item 149
+SV-WEB-150,Content/SEO,P1,Backlog item 150
+SV-WEB-151,Ops/QC/Inventory,P2,Backlog item 151
+SV-WEB-152,Admin/Analytics,P3,Backlog item 152
+SV-WEB-153,Security/Performance,P1,Backlog item 153
+SV-WEB-154,Discovery,P2,Backlog item 154
+SV-WEB-155,Product Page,P3,Backlog item 155
+SV-WEB-156,Checkout,P1,Backlog item 156
+SV-WEB-157,Shipping,P2,Backlog item 157
+SV-WEB-158,Accounts,P3,Backlog item 158
+SV-WEB-159,Content/SEO,P1,Backlog item 159
+SV-WEB-160,Ops/QC/Inventory,P2,Backlog item 160
+SV-WEB-161,Admin/Analytics,P3,Backlog item 161
+SV-WEB-162,Security/Performance,P1,Backlog item 162
+SV-WEB-163,Discovery,P2,Backlog item 163
+SV-WEB-164,Product Page,P3,Backlog item 164
+SV-WEB-165,Checkout,P1,Backlog item 165
+SV-WEB-166,Shipping,P2,Backlog item 166
+SV-WEB-167,Accounts,P3,Backlog item 167
+SV-WEB-168,Content/SEO,P1,Backlog item 168
+SV-WEB-169,Ops/QC/Inventory,P2,Backlog item 169
+SV-WEB-170,Admin/Analytics,P3,Backlog item 170
+SV-WEB-171,Security/Performance,P1,Backlog item 171
+SV-WEB-172,Discovery,P2,Backlog item 172
+SV-WEB-173,Product Page,P3,Backlog item 173
+SV-WEB-174,Checkout,P1,Backlog item 174
+SV-WEB-175,Shipping,P2,Backlog item 175
+SV-WEB-176,Accounts,P3,Backlog item 176
+SV-WEB-177,Content/SEO,P1,Backlog item 177
+SV-WEB-178,Ops/QC/Inventory,P2,Backlog item 178
+SV-WEB-179,Admin/Analytics,P3,Backlog item 179
+SV-WEB-180,Security/Performance,P1,Backlog item 180
+SV-WEB-181,Discovery,P2,Backlog item 181
+SV-WEB-182,Product Page,P3,Backlog item 182
+SV-WEB-183,Checkout,P1,Backlog item 183
+SV-WEB-184,Shipping,P2,Backlog item 184
+SV-WEB-185,Accounts,P3,Backlog item 185
+SV-WEB-186,Content/SEO,P1,Backlog item 186
+SV-WEB-187,Ops/QC/Inventory,P2,Backlog item 187
+SV-WEB-188,Admin/Analytics,P3,Backlog item 188
+SV-WEB-189,Security/Performance,P1,Backlog item 189
+SV-WEB-190,Discovery,P2,Backlog item 190
+SV-WEB-191,Product Page,P3,Backlog item 191
+SV-WEB-192,Checkout,P1,Backlog item 192
+SV-WEB-193,Shipping,P2,Backlog item 193
+SV-WEB-194,Accounts,P3,Backlog item 194
+SV-WEB-195,Content/SEO,P1,Backlog item 195
+SV-WEB-196,Ops/QC/Inventory,P2,Backlog item 196
+SV-WEB-197,Admin/Analytics,P3,Backlog item 197
+SV-WEB-198,Security/Performance,P1,Backlog item 198
+SV-WEB-199,Discovery,P2,Backlog item 199
+SV-WEB-200,Product Page,P3,Backlog item 200
+SV-WEB-201,Checkout,P1,Backlog item 201
+SV-WEB-202,Shipping,P2,Backlog item 202
+SV-WEB-203,Accounts,P3,Backlog item 203
+SV-WEB-204,Content/SEO,P1,Backlog item 204
+SV-WEB-205,Ops/QC/Inventory,P2,Backlog item 205
+SV-WEB-206,Admin/Analytics,P3,Backlog item 206
+SV-WEB-207,Security/Performance,P1,Backlog item 207
+SV-WEB-208,Discovery,P2,Backlog item 208
+SV-WEB-209,Product Page,P3,Backlog item 209
+SV-WEB-210,Checkout,P1,Backlog item 210
+SV-WEB-211,Shipping,P2,Backlog item 211
+SV-WEB-212,Accounts,P3,Backlog item 212
+SV-WEB-213,Content/SEO,P1,Backlog item 213
+SV-WEB-214,Ops/QC/Inventory,P2,Backlog item 214
+SV-WEB-215,Admin/Analytics,P3,Backlog item 215
+SV-WEB-216,Security/Performance,P1,Backlog item 216
+SV-WEB-217,Discovery,P2,Backlog item 217
+SV-WEB-218,Product Page,P3,Backlog item 218
+SV-WEB-219,Checkout,P1,Backlog item 219
+SV-WEB-220,Shipping,P2,Backlog item 220
+SV-WEB-221,Accounts,P3,Backlog item 221
+SV-WEB-222,Content/SEO,P1,Backlog item 222
+SV-WEB-223,Ops/QC/Inventory,P2,Backlog item 223
+SV-WEB-224,Admin/Analytics,P3,Backlog item 224
+SV-WEB-225,Security/Performance,P1,Backlog item 225
+SV-WEB-226,Discovery,P2,Backlog item 226
+SV-WEB-227,Product Page,P3,Backlog item 227
+SV-WEB-228,Checkout,P1,Backlog item 228
+SV-WEB-229,Shipping,P2,Backlog item 229
+SV-WEB-230,Accounts,P3,Backlog item 230
+SV-WEB-231,Content/SEO,P1,Backlog item 231
+SV-WEB-232,Ops/QC/Inventory,P2,Backlog item 232
+SV-WEB-233,Admin/Analytics,P3,Backlog item 233
+SV-WEB-234,Security/Performance,P1,Backlog item 234
+SV-WEB-235,Discovery,P2,Backlog item 235
+SV-WEB-236,Product Page,P3,Backlog item 236
+SV-WEB-237,Checkout,P1,Backlog item 237
+SV-WEB-238,Shipping,P2,Backlog item 238
+SV-WEB-239,Accounts,P3,Backlog item 239
+SV-WEB-240,Content/SEO,P1,Backlog item 240
+SV-WEB-241,Ops/QC/Inventory,P2,Backlog item 241
+SV-WEB-242,Admin/Analytics,P3,Backlog item 242
+SV-WEB-243,Security/Performance,P1,Backlog item 243
+SV-WEB-244,Discovery,P2,Backlog item 244
+SV-WEB-245,Product Page,P3,Backlog item 245
+SV-WEB-246,Checkout,P1,Backlog item 246
+SV-WEB-247,Shipping,P2,Backlog item 247
+SV-WEB-248,Accounts,P3,Backlog item 248
+SV-WEB-249,Content/SEO,P1,Backlog item 249
+SV-WEB-250,Ops/QC/Inventory,P2,Backlog item 250
+SV-WEB-251,Admin/Analytics,P3,Backlog item 251
+SV-WEB-252,Security/Performance,P1,Backlog item 252
+SV-WEB-253,Discovery,P2,Backlog item 253
+SV-WEB-254,Product Page,P3,Backlog item 254
+SV-WEB-255,Checkout,P1,Backlog item 255
+SV-WEB-256,Shipping,P2,Backlog item 256
+SV-WEB-257,Accounts,P3,Backlog item 257
+SV-WEB-258,Content/SEO,P1,Backlog item 258
+SV-WEB-259,Ops/QC/Inventory,P2,Backlog item 259
+SV-WEB-260,Admin/Analytics,P3,Backlog item 260
+SV-WEB-261,Security/Performance,P1,Backlog item 261
+SV-WEB-262,Discovery,P2,Backlog item 262
+SV-WEB-263,Product Page,P3,Backlog item 263
+SV-WEB-264,Checkout,P1,Backlog item 264
+SV-WEB-265,Shipping,P2,Backlog item 265
+SV-WEB-266,Accounts,P3,Backlog item 266
+SV-WEB-267,Content/SEO,P1,Backlog item 267
+SV-WEB-268,Ops/QC/Inventory,P2,Backlog item 268
+SV-WEB-269,Admin/Analytics,P3,Backlog item 269
+SV-WEB-270,Security/Performance,P1,Backlog item 270
+SV-WEB-271,Discovery,P2,Backlog item 271
+SV-WEB-272,Product Page,P3,Backlog item 272
+SV-WEB-273,Checkout,P1,Backlog item 273
+SV-WEB-274,Shipping,P2,Backlog item 274
+SV-WEB-275,Accounts,P3,Backlog item 275
+SV-WEB-276,Content/SEO,P1,Backlog item 276
+SV-WEB-277,Ops/QC/Inventory,P2,Backlog item 277
+SV-WEB-278,Admin/Analytics,P3,Backlog item 278
+SV-WEB-279,Security/Performance,P1,Backlog item 279
+SV-WEB-280,Discovery,P2,Backlog item 280
+SV-WEB-281,Product Page,P3,Backlog item 281
+SV-WEB-282,Checkout,P1,Backlog item 282
+SV-WEB-283,Shipping,P2,Backlog item 283
+SV-WEB-284,Accounts,P3,Backlog item 284
+SV-WEB-285,Content/SEO,P1,Backlog item 285
+SV-WEB-286,Ops/QC/Inventory,P2,Backlog item 286
+SV-WEB-287,Admin/Analytics,P3,Backlog item 287
+SV-WEB-288,Security/Performance,P1,Backlog item 288
+SV-WEB-289,Discovery,P2,Backlog item 289
+SV-WEB-290,Product Page,P3,Backlog item 290
+SV-WEB-291,Checkout,P1,Backlog item 291
+SV-WEB-292,Shipping,P2,Backlog item 292
+SV-WEB-293,Accounts,P3,Backlog item 293
+SV-WEB-294,Content/SEO,P1,Backlog item 294
+SV-WEB-295,Ops/QC/Inventory,P2,Backlog item 295
+SV-WEB-296,Admin/Analytics,P3,Backlog item 296
+SV-WEB-297,Security/Performance,P1,Backlog item 297
+SV-WEB-298,Discovery,P2,Backlog item 298
+SV-WEB-299,Product Page,P3,Backlog item 299
+SV-WEB-300,Checkout,P1,Backlog item 300
+SV-WEB-301,Shipping,P2,Backlog item 301
+SV-WEB-302,Accounts,P3,Backlog item 302
+SV-WEB-303,Content/SEO,P1,Backlog item 303
+SV-WEB-304,Ops/QC/Inventory,P2,Backlog item 304
+SV-WEB-305,Admin/Analytics,P3,Backlog item 305
+SV-WEB-306,Security/Performance,P1,Backlog item 306
+SV-WEB-307,Discovery,P2,Backlog item 307
+SV-WEB-308,Product Page,P3,Backlog item 308
+SV-WEB-309,Checkout,P1,Backlog item 309
+SV-WEB-310,Shipping,P2,Backlog item 310
+SV-WEB-311,Accounts,P3,Backlog item 311
+SV-WEB-312,Content/SEO,P1,Backlog item 312
+SV-WEB-313,Ops/QC/Inventory,P2,Backlog item 313
+SV-WEB-314,Admin/Analytics,P3,Backlog item 314
+SV-WEB-315,Security/Performance,P1,Backlog item 315
+SV-WEB-316,Discovery,P2,Backlog item 316
+SV-WEB-317,Product Page,P3,Backlog item 317
+SV-WEB-318,Checkout,P1,Backlog item 318
+SV-WEB-319,Shipping,P2,Backlog item 319
+SV-WEB-320,Accounts,P3,Backlog item 320
+SV-WEB-321,Content/SEO,P1,Backlog item 321
+SV-WEB-322,Ops/QC/Inventory,P2,Backlog item 322
+SV-WEB-323,Admin/Analytics,P3,Backlog item 323
+SV-WEB-324,Security/Performance,P1,Backlog item 324
+SV-WEB-325,Discovery,P2,Backlog item 325
+SV-WEB-326,Product Page,P3,Backlog item 326
+SV-WEB-327,Checkout,P1,Backlog item 327
+SV-WEB-328,Shipping,P2,Backlog item 328
+SV-WEB-329,Accounts,P3,Backlog item 329
+SV-WEB-330,Content/SEO,P1,Backlog item 330
+SV-WEB-331,Ops/QC/Inventory,P2,Backlog item 331
+SV-WEB-332,Admin/Analytics,P3,Backlog item 332
+SV-WEB-333,Security/Performance,P1,Backlog item 333
+SV-WEB-334,Discovery,P2,Backlog item 334
+SV-WEB-335,Product Page,P3,Backlog item 335
+SV-WEB-336,Checkout,P1,Backlog item 336
+SV-WEB-337,Shipping,P2,Backlog item 337
+SV-WEB-338,Accounts,P3,Backlog item 338
+SV-WEB-339,Content/SEO,P1,Backlog item 339
+SV-WEB-340,Ops/QC/Inventory,P2,Backlog item 340
+SV-WEB-341,Admin/Analytics,P3,Backlog item 341
+SV-WEB-342,Security/Performance,P1,Backlog item 342
+SV-WEB-343,Discovery,P2,Backlog item 343
+SV-WEB-344,Product Page,P3,Backlog item 344
+SV-WEB-345,Checkout,P1,Backlog item 345
+SV-WEB-346,Shipping,P2,Backlog item 346
+SV-WEB-347,Accounts,P3,Backlog item 347
+SV-WEB-348,Content/SEO,P1,Backlog item 348
+SV-WEB-349,Ops/QC/Inventory,P2,Backlog item 349
+SV-WEB-350,Admin/Analytics,P3,Backlog item 350
+SV-WEB-351,Security/Performance,P1,Backlog item 351
+SV-WEB-352,Discovery,P2,Backlog item 352
+SV-WEB-353,Product Page,P3,Backlog item 353
+SV-WEB-354,Checkout,P1,Backlog item 354
+SV-WEB-355,Shipping,P2,Backlog item 355
+SV-WEB-356,Accounts,P3,Backlog item 356
+SV-WEB-357,Content/SEO,P1,Backlog item 357
+SV-WEB-358,Ops/QC/Inventory,P2,Backlog item 358
+SV-WEB-359,Admin/Analytics,P3,Backlog item 359
+SV-WEB-360,Security/Performance,P1,Backlog item 360
+SV-WEB-361,Discovery,P2,Backlog item 361
+SV-WEB-362,Product Page,P3,Backlog item 362
+SV-WEB-363,Checkout,P1,Backlog item 363
+SV-WEB-364,Shipping,P2,Backlog item 364
+SV-WEB-365,Accounts,P3,Backlog item 365
+SV-WEB-366,Content/SEO,P1,Backlog item 366
+SV-WEB-367,Ops/QC/Inventory,P2,Backlog item 367
+SV-WEB-368,Admin/Analytics,P3,Backlog item 368
+SV-WEB-369,Security/Performance,P1,Backlog item 369
+SV-WEB-370,Discovery,P2,Backlog item 370
+SV-WEB-371,Product Page,P3,Backlog item 371
+SV-WEB-372,Checkout,P1,Backlog item 372
+SV-WEB-373,Shipping,P2,Backlog item 373
+SV-WEB-374,Accounts,P3,Backlog item 374
+SV-WEB-375,Content/SEO,P1,Backlog item 375
+SV-WEB-376,Ops/QC/Inventory,P2,Backlog item 376
+SV-WEB-377,Admin/Analytics,P3,Backlog item 377
+SV-WEB-378,Security/Performance,P1,Backlog item 378
+SV-WEB-379,Discovery,P2,Backlog item 379
+SV-WEB-380,Product Page,P3,Backlog item 380
+SV-WEB-381,Checkout,P1,Backlog item 381
+SV-WEB-382,Shipping,P2,Backlog item 382
+SV-WEB-383,Accounts,P3,Backlog item 383
+SV-WEB-384,Content/SEO,P1,Backlog item 384
+SV-WEB-385,Ops/QC/Inventory,P2,Backlog item 385
+SV-WEB-386,Admin/Analytics,P3,Backlog item 386
+SV-WEB-387,Security/Performance,P1,Backlog item 387
+SV-WEB-388,Discovery,P2,Backlog item 388
+SV-WEB-389,Product Page,P3,Backlog item 389
+SV-WEB-390,Checkout,P1,Backlog item 390
+SV-WEB-391,Shipping,P2,Backlog item 391
+SV-WEB-392,Accounts,P3,Backlog item 392
+SV-WEB-393,Content/SEO,P1,Backlog item 393
+SV-WEB-394,Ops/QC/Inventory,P2,Backlog item 394
+SV-WEB-395,Admin/Analytics,P3,Backlog item 395
+SV-WEB-396,Security/Performance,P1,Backlog item 396
+SV-WEB-397,Discovery,P2,Backlog item 397
+SV-WEB-398,Product Page,P3,Backlog item 398
+SV-WEB-399,Checkout,P1,Backlog item 399
+SV-WEB-400,Shipping,P2,Backlog item 400
+SV-WEB-401,Accounts,P3,Backlog item 401
+SV-WEB-402,Content/SEO,P1,Backlog item 402
+SV-WEB-403,Ops/QC/Inventory,P2,Backlog item 403
+SV-WEB-404,Admin/Analytics,P3,Backlog item 404
+SV-WEB-405,Security/Performance,P1,Backlog item 405
+SV-WEB-406,Discovery,P2,Backlog item 406
+SV-WEB-407,Product Page,P3,Backlog item 407
+SV-WEB-408,Checkout,P1,Backlog item 408
+SV-WEB-409,Shipping,P2,Backlog item 409
+SV-WEB-410,Accounts,P3,Backlog item 410
+SV-WEB-411,Content/SEO,P1,Backlog item 411
+SV-WEB-412,Ops/QC/Inventory,P2,Backlog item 412
+SV-WEB-413,Admin/Analytics,P3,Backlog item 413
+SV-WEB-414,Security/Performance,P1,Backlog item 414
+SV-WEB-415,Discovery,P2,Backlog item 415
+SV-WEB-416,Product Page,P3,Backlog item 416
+SV-WEB-417,Checkout,P1,Backlog item 417
+SV-WEB-418,Shipping,P2,Backlog item 418
+SV-WEB-419,Accounts,P3,Backlog item 419
+SV-WEB-420,Content/SEO,P1,Backlog item 420
+SV-WEB-421,Ops/QC/Inventory,P2,Backlog item 421
+SV-WEB-422,Admin/Analytics,P3,Backlog item 422
+SV-WEB-423,Security/Performance,P1,Backlog item 423
+SV-WEB-424,Discovery,P2,Backlog item 424
+SV-WEB-425,Product Page,P3,Backlog item 425
+SV-WEB-426,Checkout,P1,Backlog item 426
+SV-WEB-427,Shipping,P2,Backlog item 427
+SV-WEB-428,Accounts,P3,Backlog item 428
+SV-WEB-429,Content/SEO,P1,Backlog item 429
+SV-WEB-430,Ops/QC/Inventory,P2,Backlog item 430
+SV-WEB-431,Admin/Analytics,P3,Backlog item 431
+SV-WEB-432,Security/Performance,P1,Backlog item 432
+SV-WEB-433,Discovery,P2,Backlog item 433
+SV-WEB-434,Product Page,P3,Backlog item 434
+SV-WEB-435,Checkout,P1,Backlog item 435
+SV-WEB-436,Shipping,P2,Backlog item 436
+SV-WEB-437,Accounts,P3,Backlog item 437
+SV-WEB-438,Content/SEO,P1,Backlog item 438
+SV-WEB-439,Ops/QC/Inventory,P2,Backlog item 439
+SV-WEB-440,Admin/Analytics,P3,Backlog item 440
+SV-WEB-441,Security/Performance,P1,Backlog item 441
+SV-WEB-442,Discovery,P2,Backlog item 442
+SV-WEB-443,Product Page,P3,Backlog item 443
+SV-WEB-444,Checkout,P1,Backlog item 444
+SV-WEB-445,Shipping,P2,Backlog item 445
+SV-WEB-446,Accounts,P3,Backlog item 446
+SV-WEB-447,Content/SEO,P1,Backlog item 447
+SV-WEB-448,Ops/QC/Inventory,P2,Backlog item 448
+SV-WEB-449,Admin/Analytics,P3,Backlog item 449
+SV-WEB-450,Security/Performance,P1,Backlog item 450
+SV-WEB-451,Discovery,P2,Backlog item 451
+SV-WEB-452,Product Page,P3,Backlog item 452
+SV-WEB-453,Checkout,P1,Backlog item 453
+SV-WEB-454,Shipping,P2,Backlog item 454
+SV-WEB-455,Accounts,P3,Backlog item 455
+SV-WEB-456,Content/SEO,P1,Backlog item 456
+SV-WEB-457,Ops/QC/Inventory,P2,Backlog item 457
+SV-WEB-458,Admin/Analytics,P3,Backlog item 458
+SV-WEB-459,Security/Performance,P1,Backlog item 459
+SV-WEB-460,Discovery,P2,Backlog item 460
+SV-WEB-461,Product Page,P3,Backlog item 461
+SV-WEB-462,Checkout,P1,Backlog item 462
+SV-WEB-463,Shipping,P2,Backlog item 463
+SV-WEB-464,Accounts,P3,Backlog item 464
+SV-WEB-465,Content/SEO,P1,Backlog item 465
+SV-WEB-466,Ops/QC/Inventory,P2,Backlog item 466
+SV-WEB-467,Admin/Analytics,P3,Backlog item 467
+SV-WEB-468,Security/Performance,P1,Backlog item 468
+SV-WEB-469,Discovery,P2,Backlog item 469
+SV-WEB-470,Product Page,P3,Backlog item 470
+SV-WEB-471,Checkout,P1,Backlog item 471
+SV-WEB-472,Shipping,P2,Backlog item 472
+SV-WEB-473,Accounts,P3,Backlog item 473
+SV-WEB-474,Content/SEO,P1,Backlog item 474
+SV-WEB-475,Ops/QC/Inventory,P2,Backlog item 475
+SV-WEB-476,Admin/Analytics,P3,Backlog item 476
+SV-WEB-477,Security/Performance,P1,Backlog item 477
+SV-WEB-478,Discovery,P2,Backlog item 478
+SV-WEB-479,Product Page,P3,Backlog item 479
+SV-WEB-480,Checkout,P1,Backlog item 480
+SV-WEB-481,Shipping,P2,Backlog item 481
+SV-WEB-482,Accounts,P3,Backlog item 482
+SV-WEB-483,Content/SEO,P1,Backlog item 483
+SV-WEB-484,Ops/QC/Inventory,P2,Backlog item 484
+SV-WEB-485,Admin/Analytics,P3,Backlog item 485
+SV-WEB-486,Security/Performance,P1,Backlog item 486
+SV-WEB-487,Discovery,P2,Backlog item 487
+SV-WEB-488,Product Page,P3,Backlog item 488
+SV-WEB-489,Checkout,P1,Backlog item 489
+SV-WEB-490,Shipping,P2,Backlog item 490
+SV-WEB-491,Accounts,P3,Backlog item 491
+SV-WEB-492,Content/SEO,P1,Backlog item 492
+SV-WEB-493,Ops/QC/Inventory,P2,Backlog item 493
+SV-WEB-494,Admin/Analytics,P3,Backlog item 494
+SV-WEB-495,Security/Performance,P1,Backlog item 495
+SV-WEB-496,Discovery,P2,Backlog item 496
+SV-WEB-497,Product Page,P3,Backlog item 497
+SV-WEB-498,Checkout,P1,Backlog item 498
+SV-WEB-499,Shipping,P2,Backlog item 499
+SV-WEB-500,Accounts,P3,Backlog item 500
+SV-WEB-501,Content/SEO,P1,Backlog item 501
+SV-WEB-502,Ops/QC/Inventory,P2,Backlog item 502
+SV-WEB-503,Admin/Analytics,P3,Backlog item 503
+SV-WEB-504,Security/Performance,P1,Backlog item 504
+SV-WEB-505,Discovery,P2,Backlog item 505
+SV-WEB-506,Product Page,P3,Backlog item 506
+SV-WEB-507,Checkout,P1,Backlog item 507
+SV-WEB-508,Shipping,P2,Backlog item 508
+SV-WEB-509,Accounts,P3,Backlog item 509
+SV-WEB-510,Content/SEO,P1,Backlog item 510
+SV-WEB-511,Ops/QC/Inventory,P2,Backlog item 511
+SV-WEB-512,Admin/Analytics,P3,Backlog item 512
+SV-WEB-513,Security/Performance,P1,Backlog item 513
+SV-WEB-514,Discovery,P2,Backlog item 514
+SV-WEB-515,Product Page,P3,Backlog item 515
+SV-WEB-516,Checkout,P1,Backlog item 516
+SV-WEB-517,Shipping,P2,Backlog item 517
+SV-WEB-518,Accounts,P3,Backlog item 518
+SV-WEB-519,Content/SEO,P1,Backlog item 519
+SV-WEB-520,Ops/QC/Inventory,P2,Backlog item 520

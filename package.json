@@ -1,5 +1,7 @@
 {
   "name": "seasonville",
+  "private": true,
+  "version": "0.1.0",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +9,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "node tests/smoke.js",
+    "prisma:seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "zod": "3.23.8"
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:seed": "tsx prisma/seed.ts",

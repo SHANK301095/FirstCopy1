@@ -1,5 +1,16 @@
 export default function AccountPage() {
   return (
+    <main style={{ padding: "2rem" }}>
+      <h1>Your account</h1>
+      <section style={{ marginTop: "1rem" }}>
+        <h2>Orders</h2>
+        <p>No orders yet. Place your first festival order!</p>
+      </section>
+      <section style={{ marginTop: "1rem" }}>
+        <h2>Saved addresses</h2>
+        <p>Add a new address during checkout.</p>
+      </section>
+    </main>
     <div className="space-y-6">
       <div className="rounded-3xl bg-white p-8 shadow-sm">
         <h1 className="text-3xl font-semibold">Account</h1>
