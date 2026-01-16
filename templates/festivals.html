@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Festivals Hub{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h1>Festivals hub</h1>
+      <p>Month-wise calendar with curated collections and delivery cutoffs.</p>
+    </div>
+    <div class="grid">
+      {% for festival in festivals %}
+      <a class="card" href="/festival/{{ festival.name | lower | replace(' ', '-') }}">
+        <h3>{{ festival.name }}</h3>
+        <p class="muted">Month {{ festival.month_index }} · {{ festival.region }}</p>
+        <p>{{ festival.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

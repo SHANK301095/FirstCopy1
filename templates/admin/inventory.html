@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Inventory{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Inventory batches (FEFO)</h1>
+    <p class="muted">Sorted by expiry to enforce first-expiry-first-out.</p>
+    <div class="list">
+      {% for batch in batches %}
+      <div class="list-item">
+        <div>
+          <strong>{{ batch.product_name }}</strong>
+          <p class="muted">Lot {{ batch.lot_no }} · Supplier {{ batch.supplier_name or 'Internal' }}</p>
+        </div>
+        <div>
+          <span>Expiry {{ batch.expiry_date }}</span>
+          <span class="pill">QC: {{ batch.qc_status }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No batches logged yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

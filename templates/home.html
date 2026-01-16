@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Festival-first private label gifting{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Premium, festive, trustworthy</span>
+      <h1>Festival-first gifting curated for India’s seasons.</h1>
+      <p>SeasonVille crafts private-label hampers, foods, and decor with strict QC, fast delivery, and joyful packaging.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/festivals">Explore festivals</a>
+        <a class="btn-outline" href="/bundle-builder">Build a bundle</a>
+      </div>
+      <div class="promise">
+        <strong>Delivery promise:</strong> {{ promise }}
+      </div>
+    </div>
+    <div class="card">
+      <h3>Festival selector</h3>
+      <form class="form" method="get" action="/festivals">
+        <label>Next festival</label>
+        <select name="festival">
+          {% for festival in festivals[:8] %}
+          <option value="{{ festival.name }}">{{ festival.name }} · {{ festival.region }}</option>
+          {% endfor %}
+        </select>
+        <label>Region</label>
+        <select name="region">
+          <option>Pan-India</option>
+          <option>North</option>
+          <option>South</option>
+          <option>East</option>
+          <option>West</option>
+        </select>
+        <label>Budget</label>
+        <select name="budget">
+          <option>Under ₹999</option>
+          <option>₹1,000 - ₹2,499</option>
+          <option>₹2,500 - ₹5,000</option>
+          <option>₹5,000+</option>
+        </select>
+        <button class="btn" type="submit">Find gifts</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured bundles</h2>
+      <p>Curated mixes with gift-ready packaging and story cards.</p>
+    </div>
+    <div class="grid">
+      {% for bundle in bundles %}
+      <div class="card">
+        <h3>{{ bundle.name }}</h3>
+        <p>{{ bundle.description }}</p>
+        <p class="muted">{{ bundle.pricing_rule }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="section-header">
+      <h2>Gift Finder Wizard</h2>
+      <p>Pick recipient, budget, and delivery date to unlock seasonal recommendations.</p>
+    </div>
+    <form class="wizard" method="get" action="/collections">
+      <div>
+        <label>Recipient</label>
+        <select name="recipient">
+          <option>Parents</option>
+          <option>Sibling</option>
+          <option>Colleagues</option>
+          <option>Kids</option>
+          <option>Clients</option>
+        </select>
+      </div>
+      <div>
+        <label>Budget</label>
+        <select name="budget">
+          <option>Under ₹999</option>
+          <option>₹1,000 - ₹2,499</option>
+          <option>₹2,500 - ₹5,000</option>
+        </select>
+      </div>
+      <div>
+        <label>Delivery date</label>
+        <input type="date" name="delivery_date" required />
+      </div>
+      <button class="btn" type="submit">Show gifts</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

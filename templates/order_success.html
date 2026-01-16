@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Order Success{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="card">
+      <h1>Order confirmed</h1>
+      <p>Your order #{{ order.id }} is placed. We will send updates soon.</p>
+      <p>Status: <strong>{{ order.status }}</strong></p>
+      <p>Delivery date: {{ order.delivery_date }}</p>
+      <div class="divider"></div>
+      <h3>Tracking</h3>
+      <p>Courier: {{ shipment.courier if shipment else 'Needs Setup' }}</p>
+      <p>Tracking: {{ shipment.tracking_no if shipment else 'Needs Setup' }}</p>
+      <p class="tag">Courier integration: Needs Setup</p>
+      <a class="btn-outline" href="/returns/request?order_id={{ order.id }}">Request return/replacement</a>
+      <a class="btn" href="/account">View orders</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

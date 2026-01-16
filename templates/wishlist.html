@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Wishlist{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Wishlist</h1>
+    <div class="grid">
+      <div class="card">
+        <h3>Saved lists</h3>
+        {% for list in wishlists %}
+          <p>{{ list.name }} · {{ list.festival }} · {{ list.recipient }}</p>
+        {% else %}
+          <p>No wishlists yet.</p>
+        {% endfor %}
+      </div>
+      <div class="card">
+        <h3>Items</h3>
+        {% for item in wishlist_items %}
+          <p>{{ item.product_name }}</p>
+        {% else %}
+          <p>No items saved.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

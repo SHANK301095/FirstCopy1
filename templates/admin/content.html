@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Content Admin{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Content management</h1>
+    <div class="grid">
+      {% for page in pages %}
+      <div class="card">
+        <h3>{{ page.title }}</h3>
+        <p class="muted">{{ page.category }} · {{ page.slug }}</p>
+        <p>{{ page.body }}</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No content pages found.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

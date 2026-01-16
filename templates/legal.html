@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Legal{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Legal & Policies</h1>
+    <div class="grid">
+      {% for policy in policies %}
+      <div class="card">
+        <h3>{{ policy.title }}</h3>
+        <p>{{ policy.body }}</p>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>Policies will be added soon.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}SeasonVille | Review Moderation{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <h1>Review moderation</h1>
+    <div class="list">
+      {% for review in reviews %}
+      <div class="list-item">
+        <div>
+          <strong>{{ review.product_name }}</strong>
+          <p class="muted">{{ review.title }} · Rating {{ review.rating }}/5</p>
+          <p>{{ review.body }}</p>
+        </div>
+        <div>
+          <span class="pill">{{ review.status }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="card">
+        <p>No reviews yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
