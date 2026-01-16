@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { festivals, products } from "@/lib/catalog";
+
+import { Card } from "@/components/ui/card";
+import { products, festivals } from "@/lib/catalog";
 
 export default function FestivalPage({ params }: { params: { slug: string } }) {
   const festival = festivals.find((item) => item.slug === params.slug);
@@ -7,49 +9,43 @@ export default function FestivalPage({ params }: { params: { slug: string } }) {
 
   if (!festival) {
     return (
-      <main style={{ padding: "2rem" }}>
-        <h1>Festival not found</h1>
-        <Link href="/">Back to home</Link>
-      </main>
+      <div className="space-y-4">
+        <h1 className="text-2xl font-semibold">Festival not found</h1>
+        <Link className="text-brand-700" href="/">
+          Back to home
+        </Link>
+      </div>
     );
   }
 
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>{festival.name}</h1>
-      <p>{festival.hero}</p>
-      <section style={{ marginTop: "2rem" }}>
-        <h2>Festival bundles</h2>
+    <div className="space-y-8">
+      <div className="rounded-3xl bg-white p-8 shadow-sm">
+        <h1 className="text-3xl font-semibold">{festival.name}</h1>
+        <p className="mt-2 text-slate-600">{festival.hero}</p>
+        <p className="mt-2 text-sm text-brand-700">Cutoffs placeholder — configure by city tier.</p>
+      </div>
+
+      <section className="space-y-4">
+        <h2 className="section-title">Festival bundles</h2>
         {filtered.length === 0 ? (
-          <p>No bundles yet. Add SeasonVille private-label collections here.</p>
+          <Card className="border-dashed text-sm text-slate-600">
+            No bundles yet. Add SeasonVille private-label collections here.
+          </Card>
         ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1rem",
-            }}
-          >
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((product) => (
-              <Link
-                key={product.slug}
-                href={`/products/${product.slug}`}
-                style={{
-                  border: "1px solid #f0e7db",
-                  borderRadius: 12,
-                  padding: "1rem",
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
-              >
-                <strong>{product.title}</strong>
-                <p style={{ color: "#6b6b6b" }}>{product.description}</p>
-                <span>₹{product.price}</span>
+              <Link key={product.slug} href={`/products/${product.slug}`} className="group">
+                <Card className="flex h-full flex-col transition group-hover:border-brand-500">
+                  <h3 className="text-lg font-semibold text-slate-900">{product.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{product.description}</p>
+                  <span className="mt-4 text-sm font-semibold text-brand-700">₹{product.price}</span>
+                </Card>
               </Link>
             ))}
           </div>
         )}
       </section>
-    </main>
+    </div>
   );
 }

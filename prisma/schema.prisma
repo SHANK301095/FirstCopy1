@@ -3,35 +3,22 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-
-enum Role {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-enum UserRole {
+enum Role {
   USER
   ADMIN
 }
 
 enum OrderStatus {
   CREATED
-  NEW
   PAID
   PROCESSING
   SHIPPED
   DELIVERED
   CANCELLED
-}
-
-enum CityTier {
-  METRO
-  TIER1
-  TIER2
-  TIER3
 }
 
 model User {
@@ -42,20 +29,13 @@ model User {
   createdAt DateTime @default(now())
   orders    Order[]
   addresses Address[]
-  role      UserRole @default(USER)
-  createdAt DateTime @default(now())
-  addresses Address[]
-  orders    Order[]
-  reviews   Review[]
+  carts     Cart[]
 }
 
 model Address {
   id        String   @id @default(cuid())
   userId    String
   line1     String
-  city      String
-  state     String
-  pincode   String
   line2     String?
   city      String
   state     String
@@ -63,100 +43,22 @@ model Address {
   country   String   @default("IN")
   createdAt DateTime @default(now())
   user      User     @relation(fields: [userId], references: [id])
+  orders    Order[]
+}
+
+model Collection {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
 }
 
 model Product {
-  id            String   @id @default(cuid())
+  id            String       @id @default(cuid())
   title         String
-  slug          String   @unique
-  description   String
-  productLine   String
-  festivalTags  String
-  dietaryTags   String
-  ecoFlags      String
-  ingredients   String
-  allergens     String
-  shelfLife     String
-  storage       String
-  images        String
-  createdAt     DateTime @default(now())
-  variants      Variant[]
-}
-
-model Variant {
-  id        String  @id @default(cuid())
-  productId String
-  sku       String
-  name      String
-  price     Int
-  compareAt Int
-  stock     Int
-  product   Product @relation(fields: [productId], references: [id])
-}
-
-model Order {
-  id         String      @id @default(cuid())
-  userId     String
-  status     OrderStatus @default(CREATED)
-  total      Int
-  createdAt  DateTime    @default(now())
-  user       User        @relation(fields: [userId], references: [id])
-  items      OrderItem[]
-}
-
-model OrderItem {
-  id        String  @id @default(cuid())
-  orderId   String
-  variantId String
-  quantity  Int
-  price     Int
-  order     Order   @relation(fields: [orderId], references: [id])
-}
-
-model BacklogItem {
-  id        String   @id
-  title     String
-  category  String
-  priority  String
-  createdAt DateTime @default(now())
-}
-
-model Setting {
-  key   String @id
-  value String
-}
-
-model ServiceablePincode {
-  id      String @id @default(cuid())
-  pincode String @unique
-  city    String
-  state   String
-}
-
-model CutoffRule {
-  id        String @id @default(cuid())
-  festival  String
-  cityTier  String
-  cutoffIso String
-}
-
-model BatchLot {
-  id          String @id @default(cuid())
-  sku         String
-  batchCode   String
-  expiryDate  DateTime
-  receivedAt  DateTime @default(now())
-}
-
-model SupplierScorecard {
-  id           String @id @default(cuid())
-  supplierName String
-  onTimeRate   Float
-  defectRate   Float
-  responseTime Float
-  id            String    @id @default(cuid())
-  title         String
-  slug          String    @unique
+  slug          String       @unique
   description   String
   productLine   String
   festivalTags  String[]
@@ -167,108 +69,82 @@ model SupplierScorecard {
   shelfLife     String?
   storage       String?
   images        String[]
+  createdAt     DateTime     @default(now())
   variants      Variant[]
+  collectionId  String?
+  collection    Collection?  @relation(fields: [collectionId], references: [id])
   reviews       Review[]
   questions     Question[]
-  createdAt     DateTime  @default(now())
 }
 
 model Variant {
-  id          String   @id @default(cuid())
-  productId   String
-  sku         String   @unique
-  name        String
-  price       Int
-  compareAt   Int?
-  stock       Int
-  product     Product  @relation(fields: [productId], references: [id])
-  orderItems  OrderItem[]
-  batches     Batch[]
+  id         String         @id @default(cuid())
+  productId  String
+  sku        String         @unique
+  name       String
+  price      Int
+  compareAt  Int?
+  stock      Int
+  product    Product        @relation(fields: [productId], references: [id])
+  orderItems OrderItem[]
+  cartItems  CartItem[]
+  batches    InventoryBatch[]
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  userId    String
+  status    String     @default("ACTIVE")
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  user      User       @relation(fields: [userId], references: [id])
+  items     CartItem[]
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  cartId    String
+  variantId String
+  quantity  Int
+  cart      Cart     @relation(fields: [cartId], references: [id])
+  variant   Variant  @relation(fields: [variantId], references: [id])
 }
 
 model Order {
-  id        String      @id @default(cuid())
-  userId    String
-  status    OrderStatus @default(NEW)
-  total     Int
-  createdAt DateTime    @default(now())
-  user      User        @relation(fields: [userId], references: [id])
-  items     OrderItem[]
-  auditLogs AuditLog[]
+  id         String      @id @default(cuid())
+  userId     String
+  addressId  String?
+  status     OrderStatus @default(CREATED)
+  total      Int
+  createdAt  DateTime    @default(now())
+  user       User        @relation(fields: [userId], references: [id])
+  address    Address?    @relation(fields: [addressId], references: [id])
+  items      OrderItem[]
 }
 
 model OrderItem {
-  id          String   @id @default(cuid())
-  orderId     String
-  variantId   String
-  quantity    Int
-  unitPrice   Int
-  batchCode   String?
-  order       Order    @relation(fields: [orderId], references: [id])
-  variant     Variant  @relation(fields: [variantId], references: [id])
-}
-
-model BacklogItem {
-  id          String   @id
-  title       String
-  category    String
-  priority    String
-  status      String   @default("Planned")
-  createdAt   DateTime @default(now())
-}
-
-model Setting {
-  key       String @id
-  value     String
-  updatedAt DateTime @updatedAt
-}
-
-model Serviceability {
-  id      String  @id @default(cuid())
-  pincode String  @unique
-  city    String
-  state   String
-  tier    CityTier
-}
-
-model CutoffRule {
-  id          String   @id @default(cuid())
-  festival    String
-  cityTier    CityTier
-  cutoffDate  DateTime
-  message     String
-}
-
-model Batch {
-  id         String   @id @default(cuid())
-  variantId  String
-  lotCode    String
-  expiryDate DateTime
-  quantity   Int
-  variant    Variant  @relation(fields: [variantId], references: [id])
-}
-
-model AuditLog {
   id        String   @id @default(cuid())
-  actorId   String
-  action    String
-  createdAt DateTime @default(now())
-  metadata  String
+  orderId   String
+  variantId String
+  quantity  Int
+  unitPrice Int
+  batchId   String?
+  order     Order    @relation(fields: [orderId], references: [id])
+  variant   Variant  @relation(fields: [variantId], references: [id])
+  batch     InventoryBatch? @relation(fields: [batchId], references: [id])
 }
 
-model Experiment {
-  id        String @id @default(cuid())
-  name      String
-  status    String
-  createdAt DateTime @default(now())
-}
+model InventoryBatch {
+  id          String   @id @default(cuid())
+  variantId   String
+  batchCode   String
+  expiryDate  DateTime
+  receivedAt  DateTime @default(now())
+  quantity    Int
+  variant     Variant  @relation(fields: [variantId], references: [id])
+  orderItems  OrderItem[]
 
-model LoyaltyPoint {
-  id        String @id @default(cuid())
-  entity    String
-  entityId  String
-  createdAt DateTime @default(now())
-  order     Order?   @relation(fields: [entityId], references: [id])
+  @@unique([variantId, batchCode])
 }
 
 model Review {
@@ -293,26 +169,17 @@ model Question {
   product   Product  @relation(fields: [productId], references: [id])
 }
 
-model LoyaltyLedger {
-  id        String   @id @default(cuid())
-  userId    String
-  points    Int
-  reason    String
+model BacklogItem {
+  id        String   @id
+  title     String
+  category  String
+  priority  String
+  status    String   @default("Planned")
   createdAt DateTime @default(now())
 }
 
-model Referral {
-  id        String   @id @default(cuid())
-  referrerId String
-  refereeEmail String
-  status    String   @default("PENDING")
-  createdAt DateTime @default(now())
-}
-
-model Experiment {
-  id        String   @id @default(cuid())
-  key       String   @unique
-  name      String
-  status    String   @default("DRAFT")
-  createdAt DateTime @default(now())
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
 }

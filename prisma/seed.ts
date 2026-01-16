@@ -15,7 +15,7 @@ const backlogCategories = [
 ];
 
 async function main() {
-  const admin = await prisma.user.upsert({
+  await prisma.user.upsert({
     where: { email: "admin@seasonville.test" },
     update: {},
     create: {
@@ -44,7 +44,7 @@ async function main() {
     }
   });
 
-  const product = await prisma.product.upsert({
+  await prisma.product.upsert({
     where: { slug: "diwali-delight-hamper" },
     update: {},
     create: {
@@ -70,22 +70,6 @@ async function main() {
             stock: 120
           }
         ]
-      }
-    }
-  });
-
-  await prisma.order.create({
-    data: {
-      userId: admin.id,
-      status: "PROCESSING",
-      total: 2499,
-      items: {
-        create: {
-          variantId: product.variants[0].id,
-          quantity: 1,
-          unitPrice: 2499,
-          batchCode: "LOT-2024-DIW-01"
-        }
       }
     }
   });

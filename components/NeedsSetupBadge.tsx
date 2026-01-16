@@ -1,15 +1,6 @@
 export function NeedsSetupBadge({ label }: { label: string }) {
   return (
-    <span
-      style={{
-        background: "#fff5f5",
-        color: "#c53030",
-        border: "1px solid #feb2b2",
-        borderRadius: "999px",
-        padding: "0.2rem 0.6rem",
-        fontSize: "0.75rem",
-      }}
-    >
+    <span className="inline-flex items-center rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-medium text-rose-700">
       {label}: Needs Setup
     </span>
   );

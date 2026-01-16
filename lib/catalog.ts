@@ -2,33 +2,33 @@ export const festivals = [
   {
     slug: "holi",
     name: "Holi",
-    hero: "Color-packed gifting and wellness essentials.",
+    hero: "Color-packed gifting and wellness essentials."
   },
   {
     slug: "rakhi",
     name: "Rakhi",
-    hero: "Premium sibling gifting, curated hampers and sweets.",
+    hero: "Premium sibling gifting, curated hampers and sweets."
   },
   {
     slug: "diwali",
     name: "Diwali",
-    hero: "Festival of lights collections, decor, and gourmet boxes.",
+    hero: "Festival of lights collections, decor, and gourmet boxes."
   },
   {
     slug: "navratri",
     name: "Navratri / Durga Puja",
-    hero: "Fasting-friendly snacks, puja kits, and gift hampers.",
+    hero: "Fasting-friendly snacks, puja kits, and gift hampers."
   },
   {
     slug: "christmas",
     name: "Christmas",
-    hero: "Holiday gifting with artisan treats and décor.",
+    hero: "Holiday gifting with artisan treats and décor."
   },
   {
     slug: "new-year",
     name: "New Year",
-    hero: "Fresh start kits, wellness, and celebratory hampers.",
-  },
+    hero: "Fresh start kits, wellness, and celebratory hampers."
+  }
 ];
 
 export const seasonalMoments = [
@@ -41,7 +41,14 @@ export const seasonalMoments = [
   "Summer cooling",
   "Monsoon care",
   "Winter warmth",
-  "Exam season kits",
+  "Exam season kits"
+];
+
+export const trustBadges = [
+  "Private label QC",
+  "Sealed packs",
+  "Festival cutoffs tracked",
+  "Hygienic dispatch"
 ];
 
 export const products = [
@@ -58,8 +65,7 @@ export const products = [
     allergens: "Contains nuts, dairy",
     shelfLife: "30 days",
     storage: "Cool & dry",
-    description:
-      "Private-label sweets curated for gifting with sealed pack guarantee.",
+    description: "Private-label sweets curated for gifting with sealed pack guarantee."
   },
   {
     slug: "holi-herbal-gulal",
@@ -74,7 +80,7 @@ export const products = [
     allergens: "None",
     shelfLife: "18 months",
     storage: "Avoid moisture",
-    description: "Skin-safe gulal set with plant-based colors.",
+    description: "Skin-safe gulal set with plant-based colors."
   },
   {
     slug: "gourmet-dry-fruits",
@@ -89,7 +95,7 @@ export const products = [
     allergens: "Contains nuts",
     shelfLife: "120 days",
     storage: "Cool & dry",
-    description: "Premium dry fruits with private-label QC seals.",
+    description: "Premium dry fruits with private-label QC seals."
   },
   {
     slug: "eco-diyas",
@@ -104,8 +110,8 @@ export const products = [
     allergens: "None",
     shelfLife: "Durable",
     storage: "Handle with care",
-    description: "Reusable diyas with sustainable packaging.",
-  },
+    description: "Reusable diyas with sustainable packaging."
+  }
 ];
 
 export const productCategories = [
@@ -117,5 +123,5 @@ export const productCategories = [
   "Gift wraps",
   "Decor",
   "Wellness",
-  "Eco",
+  "Eco"
 ];

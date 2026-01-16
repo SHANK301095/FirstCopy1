@@ -1,3 +1,5 @@
+import { Card } from "@/components/ui/card";
+
 export default function AdminSettingsPage() {
   return (
     <div className="space-y-6">
@@ -5,9 +7,7 @@ export default function AdminSettingsPage() {
         <h1 className="text-3xl font-semibold">Peak Mode</h1>
         <p className="mt-2 text-slate-600">Toggle festival peak mode stored in settings table.</p>
       </div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
-        Peak Mode toggle placeholder (ON/OFF).
-      </div>
+      <Card className="text-sm text-slate-600">Peak Mode toggle placeholder (ON/OFF).</Card>
     </div>
   );
 }

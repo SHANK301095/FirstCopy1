@@ -1,3 +1,5 @@
+import { Card } from "@/components/ui/card";
+
 export default function AdminServiceabilityPage() {
   return (
     <div className="space-y-6">
@@ -5,9 +7,7 @@ export default function AdminServiceabilityPage() {
         <h1 className="text-3xl font-semibold">Serviceability & Cutoffs</h1>
         <p className="mt-2 text-slate-600">Manage pincode serviceability and festival cutoffs.</p>
       </div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
-        Serviceability table and cutoff rule editor placeholder.
-      </div>
+      <Card className="text-sm text-slate-600">Serviceability table and cutoff rule editor placeholder.</Card>
     </div>
   );
 }

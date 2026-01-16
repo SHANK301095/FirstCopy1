@@ -10,7 +10,17 @@ export const productSchema = z.object({
   ecoFlags: z.array(z.string()).default([])
 });
 
-export const orderStatusSchema = z.enum(["NEW", "PAID", "PROCESSING", "SHIPPED", "DELIVERED", "CANCELLED"]);
+export const orderStatusSchema = z.enum(["CREATED", "PAID", "PROCESSING", "SHIPPED", "DELIVERED", "CANCELLED"]);
+
+export const orderSchema = z.object({
+  email: z.string().email(),
+  items: z.array(
+    z.object({
+      sku: z.string().min(2),
+      quantity: z.number().int().positive()
+    })
+  )
+});
 
 export const serviceabilitySchema = z.object({
   pincode: z.string().min(6).max(6),
