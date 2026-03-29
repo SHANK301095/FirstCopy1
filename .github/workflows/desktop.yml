@@ -1,0 +1,109 @@
+name: Desktop Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Target platform'
+        required: true
+        default: 'windows'
+        type: choice
+        options:
+          - windows
+          - macos
+          - linux
+          - all
+
+# Desktop builds only on manual dispatch - not on push
+# This prevents CI failures for web-only deployments
+
+jobs:
+  build-desktop:
+    name: Build Desktop (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+          - os: macos-latest
+            platform: macos
+          - os: ubuntu-latest
+            platform: linux
+
+    runs-on: ${{ matrix.os }}
+    if: |
+      github.event_name == 'workflow_dispatch' && 
+      (github.event.inputs.platform == matrix.platform || github.event.inputs.platform == 'all') ||
+      github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.3'
+
+      - name: Cache Bun
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-desktop-${{ hashFiles('bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-desktop-
+            ${{ runner.os }}-bun-
+
+      - name: Install web dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Install Electron dependencies
+        run: |
+          npm install --save-dev electron@latest electron-builder@latest electron-updater@latest electron-log@latest
+
+      - name: Build web app
+        run: bun run build
+
+      - name: Build Electron app
+        run: npx electron-builder --${{ matrix.platform == 'windows' && 'win' || matrix.platform == 'macos' && 'mac' || 'linux' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-${{ matrix.platform }}
+          path: |
+            dist-electron/*.exe
+            dist-electron/*.dmg
+            dist-electron/*.AppImage
+            dist-electron/*.deb
+          retention-days: 14
+          if-no-files-found: ignore
+
+  release:
+    name: Create Release
+    needs: build-desktop
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.platform == 'all'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Desktop Build ${{ github.run_number }}
+          draft: true
+          files: artifacts/**/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

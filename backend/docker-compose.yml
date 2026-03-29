@@ -1,0 +1,86 @@
+# EA Backtesting Engine - Docker Compose Configuration
+# Usage:
+#   Development: docker-compose up
+#   Production:  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
+#   Tests:       docker-compose run --rm backend pytest tests/ -v
+
+version: '3.8'
+
+services:
+  # ========== Backend Service ==========
+  backend:
+    build:
+      context: .
+      target: development
+    container_name: backtest-engine
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      # Mount source code for hot reload
+      - ./main.py:/app/main.py:ro
+      - ./tests:/app/tests:ro
+      # Persistent data storage
+      - backtest-data:/app/data
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - DEV_AUTH_BYPASS=1
+      - SUPABASE_JWT_SECRET=${SUPABASE_JWT_SECRET:-}
+      - SUPABASE_URL=${SUPABASE_URL:-}
+      - ALLOWED_ORIGINS=http://localhost:5173,http://localhost:8080
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - backtest-network
+
+  # ========== Redis Cache (Optional) ==========
+  redis:
+    image: redis:7-alpine
+    container_name: backtest-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - backtest-network
+    profiles:
+      - with-cache
+
+  # ========== Test Runner ==========
+  test:
+    build:
+      context: .
+      target: production
+    container_name: backtest-tests
+    volumes:
+      - ./main.py:/app/main.py:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - DEV_AUTH_BYPASS=1
+    command: pytest tests/ -v --cov=. --cov-report=term-missing --cov-report=html:/app/coverage
+    profiles:
+      - test
+
+# ========== Volumes ==========
+volumes:
+  backtest-data:
+    driver: local
+  redis-data:
+    driver: local
+
+# ========== Networks ==========
+networks:
+  backtest-network:
+    driver: bridge

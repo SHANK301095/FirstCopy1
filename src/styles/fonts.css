@@ -1,0 +1,38 @@
+/**
+ * Local Font Configuration
+ * System font stack for offline-first operation
+ * No external CDN dependencies
+ * 
+ * NOTE: For Inter variable font, download from:
+ * https://github.com/rsms/inter/releases
+ * Place Inter.var.woff2 in public/fonts/
+ */
+
+/* Space Grotesk variable font (available locally) */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Variable.woff2") format("woff2-variations");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  /* System font stack with Space Grotesk as preferred */
+  --font-sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fallback styles */
+.font-sans {
+  font-family: var(--font-sans);
+}

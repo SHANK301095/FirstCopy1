@@ -1,0 +1,42 @@
+User-agent: Googlebot
+Allow: /
+Allow: /landing
+Allow: /pricing
+Allow: /blog
+Allow: /backtesting
+Allow: /mt5-journal
+Allow: /prop-firm
+Allow: /compare/
+Allow: /help
+Allow: /guide
+Allow: /faq
+Allow: /about
+Allow: /contact
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /workflow
+Disallow: /data
+Disallow: /strategies
+Disallow: /optimizer
+Disallow: /saved-results
+Disallow: /analytics
+Disallow: /reports
+Disallow: /run-console
+Disallow: /runners
+Disallow: /dev-tools
+
+Sitemap: https://mmc3010.lovable.app/sitemap.xml

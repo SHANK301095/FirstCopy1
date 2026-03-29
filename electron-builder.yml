@@ -1,0 +1,124 @@
+# Electron Builder Configuration
+# Builds installers for Windows (NSIS), macOS (DMG), and Linux (AppImage)
+
+appId: com.ea-backtest.studio
+productName: EA Backtesting Studio
+copyright: Copyright © 2024
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - "!node_modules/**/*"
+  - node_modules/**/*.node
+
+extraResources:
+  - from: backend/dist/backtest_server
+    to: backend
+    filter:
+      - "**/*"
+
+asar: true
+compression: maximum
+
+# Windows Configuration
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+  icon: public/favicon.ico
+  artifactName: "${productName}-${version}-win-${arch}.${ext}"
+  legalTrademarks: EA Backtesting Studio
+  # Code Signing - Set these environment variables before building:
+  # CSC_LINK: Path to .pfx certificate file OR base64-encoded certificate
+  # CSC_KEY_PASSWORD: Certificate password
+  signtoolOptions:
+    publisherName: "MMC Trading Tools"
+    # signingHashAlgorithms: ["sha256"]
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerIcon: public/favicon.ico
+  uninstallerIcon: public/favicon.ico
+  installerHeaderIcon: public/favicon.ico
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutName: EA Backtesting Studio
+  menuCategory: Trading Tools
+  runAfterFinish: true
+  allowElevation: true
+  perMachine: false
+  deleteAppDataOnUninstall: false
+
+# macOS Configuration  
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: zip
+      arch:
+        - x64
+        - arm64
+  icon: build/icon.png
+  category: public.app-category.finance
+  artifactName: "${productName}-${version}-mac-${arch}.${ext}"
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+  window:
+    width: 540
+    height: 380
+
+# Linux Configuration
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+    - target: rpm
+      arch:
+        - x64
+  icon: build/icons
+  category: Office
+  artifactName: "${productName}-${version}-linux-${arch}.${ext}"
+  synopsis: EA Backtesting Studio
+  description: Offline desktop application for backtesting trading strategies
+
+appImage:
+  license: LICENSE.txt
+
+# Code Signing (placeholders - configure with your certificates)
+# afterSign: scripts/notarize.js
+
+# Publish configuration for GitHub releases
+publish:
+  provider: github
+  owner: SHANK301095
+  repo: mmc3010
+  releaseType: release
+  
+# Auto-update configuration  
+afterPack: null

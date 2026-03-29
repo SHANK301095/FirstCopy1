@@ -1,0 +1,52 @@
+# EA Backtesting Engine - Python Dependencies
+# Install: pip install -r requirements.txt
+
+# ========== Core ==========
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pandas>=2.0.0
+numpy>=1.24.0
+pydantic>=2.0.0
+python-multipart>=0.0.6
+psutil>=5.9.0
+
+# ========== Authentication ==========
+PyJWT>=2.8.0
+cryptography>=41.0.0
+
+# ========== Caching ==========
+redis>=5.0.0
+
+# ========== Testing ==========
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+httpx>=0.25.0  # For FastAPI TestClient
+
+# ========== Development ==========
+watchfiles>=0.21.0  # For hot reload
+
+# ========== Build ==========
+pyinstaller>=6.0.0
+
+# ============================================
+# DOCKER USAGE:
+# ============================================
+# Development:  docker-compose up
+# Production:   docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# Run tests:    docker-compose run --rm test
+# ============================================
+
+# ============================================
+# ENVIRONMENT VARIABLES:
+# ============================================
+# SUPABASE_JWT_SECRET - JWT secret for auth verification
+# SUPABASE_URL - Supabase project URL
+# DEV_AUTH_BYPASS - Set to "1" for dev mode without auth
+# PRODUCTION - Set to "1" for production mode
+# ALLOWED_ORIGINS - Comma-separated allowed CORS origins
+# REDIS_URL - Redis connection URL (default: redis://localhost:6379)
+# CACHE_TTL_SECONDS - Cache TTL in seconds (default: 3600)
+# LOG_LEVEL - Logging level: DEBUG, INFO, WARNING, ERROR (default: INFO)
+# LOG_FORMAT - Log format: json or console (default: json)
+# ============================================
