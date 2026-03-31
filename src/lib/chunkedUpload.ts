@@ -5,6 +5,7 @@
  */
 
 import { supabase } from '@/integrations/supabase/client';
+import { secureLogger } from '@/lib/secureLogger';
 
 // Construct edge function URL using project ID (works across all environments)
 const PROJECT_ID = import.meta.env.VITE_SUPABASE_PROJECT_ID;
@@ -303,7 +304,7 @@ export async function uploadLargeFile(
       });
     });
 
-    console.log(`[chunkedUpload] Compressed ${file.name}: ${file.size} → ${compressedData.length} bytes`);
+    secureLogger.info('upload', `Compressed ${file.name}: ${file.size} → ${compressedData.length} bytes`);
 
     // Phase 2: Create session or resume
     let session: UploadSession;
@@ -320,7 +321,7 @@ export async function uploadLargeFile(
           partSize: 8 * 1024 * 1024,
           expiresAt: Date.now() + 24 * 60 * 60 * 1000,
         };
-        console.log(`[chunkedUpload] Resuming session ${existingSessionId}, ${uploadedParts.length}/${status.totalParts} parts done`);
+        secureLogger.info('upload', `Resuming session ${existingSessionId}, ${uploadedParts.length}/${status.totalParts} parts done`);
       } else {
         session = await createUploadSession(
           file.name, compressedData.length, metadata.symbol, metadata.timeframe

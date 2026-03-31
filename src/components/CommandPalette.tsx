@@ -95,7 +95,7 @@ export function CommandPalette() {
   useEffect(() => {
     db.datasets.orderBy('createdAt').reverse().limit(5).toArray().then(datasets => {
       setRecentDatasets(datasets.map(d => d.name));
-    });
+    }).catch(() => {});
   }, [open]);
 
   const runCommand = useCallback((command: () => void) => {

@@ -5,6 +5,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { PageErrorBoundary } from '@/components/error/PageErrorBoundary';
 import { 
   Play, 
   Pause, 
@@ -202,18 +203,6 @@ export default function Backtests() {
     }
   }, [selectedStrategy]);
 
-  // Load versions when strategy changes
-  useEffect(() => {
-    if (selectedStrategy) {
-      db.strategyVersions.where('strategyId').equals(selectedStrategy).toArray().then(versions => {
-        setStrategyVersions(versions);
-        if (versions.length > 0) {
-          setSelectedVersion(versions[versions.length - 1].id);
-        }
-      });
-    }
-  }, [selectedStrategy]);
-
   // Initialize worker
   useEffect(() => {
     workerRef.current = new Worker(new URL('../workers/backtest.worker.ts', import.meta.url), { type: 'module' });
@@ -397,6 +386,7 @@ export default function Backtests() {
   };
 
   return (
+    <PageErrorBoundary pageName="Backtests">
     <div className="h-[calc(100dvh-8rem)] md:h-[calc(100vh-8rem)] flex flex-col gap-4 animate-fade-in">
       {/* Recovery Banner */}
       {hasRecoverableRuns && (
@@ -842,5 +832,6 @@ export default function Backtests() {
         </Card>
       </Collapsible>
     </div>
+    </PageErrorBoundary>
   );
 }

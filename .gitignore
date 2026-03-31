@@ -39,3 +39,11 @@ release/
 # MMC – Local scripts / temp
 # ===============================
 *.ps1.txt
+
+# ===============================
+# Environment files (never commit real credentials)
+# ===============================
+.env
+.env.staging
+.env.local
+.env.*.local

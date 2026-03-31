@@ -4,6 +4,7 @@
  */
 
 import { db } from '@/db/index';
+import { formatBytes } from '@/lib/utils';
 
 export interface CleanupConfig {
   maxLogsAge: number; // Days to keep logs
@@ -158,16 +159,7 @@ export async function getStorageUsage(): Promise<{ quota: number; used: number; 
   return { quota: 0, used: 0, percent: 0 };
 }
 
-/**
- * Format bytes to human readable string
- */
-export function formatBytes(bytes: number): string {
-  if (bytes === 0) return '0 B';
-  const k = 1024;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`;
-}
+export { formatBytes };
 
 /**
  * Get cleanup statistics

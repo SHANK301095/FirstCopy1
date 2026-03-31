@@ -5,6 +5,7 @@
 
 import { db } from '@/db/index';
 import { secureLogger } from '@/lib/secureLogger';
+import { formatBytes } from '@/lib/utils';
 
 const STORAGE_KEY = 'mmc-cleanup-settings';
 
@@ -67,25 +68,26 @@ export async function runCleanup(maxAgeDays?: number): Promise<CleanupResult> {
   let freedSpaceEstimate = 0;
 
   try {
-    // 1. Find old datasets and delete their chunks
+    // 1. Find old datasets and delete their chunks (batch to avoid N+1 queries)
     const oldDatasets = await db.datasets
       .filter(d => d.createdAt < cutoffTime)
       .toArray();
-    
-    for (const dataset of oldDatasets) {
-      const chunks = await db.datasetChunks
+
+    if (oldDatasets.length > 0) {
+      const oldDatasetIds = oldDatasets.map(d => d.id);
+      const allChunks = await db.datasetChunks
         .where('datasetId')
-        .equals(dataset.id)
+        .anyOf(oldDatasetIds)
         .toArray();
-      
+
       // Estimate size (rough: rows * 48 bytes per row)
-      for (const chunk of chunks) {
+      for (const chunk of allChunks) {
         freedSpaceEstimate += chunk.rows.length * 48;
         deletedChunks++;
       }
-      
-      await db.datasetChunks.where('datasetId').equals(dataset.id).delete();
-      await db.datasets.delete(dataset.id);
+
+      await db.datasetChunks.where('datasetId').anyOf(oldDatasetIds).delete();
+      await db.datasets.bulkDelete(oldDatasetIds);
     }
 
     // 2. Delete old backtest runs
@@ -200,13 +202,4 @@ export async function getStorageStats(): Promise<{
   };
 }
 
-/**
- * Format bytes to human readable
- */
-export function formatBytes(bytes: number): string {
-  if (bytes === 0) return '0 B';
-  const k = 1024;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}
+export { formatBytes };

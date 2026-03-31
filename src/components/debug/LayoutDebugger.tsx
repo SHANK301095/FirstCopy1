@@ -55,33 +55,8 @@ export function LayoutDebugger() {
     });
     
     // Also check document overflow
-    const docDelta = document.documentElement.scrollWidth - document.documentElement.clientWidth;
-    if (docDelta > 1) {
-      console.warn('[LayoutDebug] Document overflow detected:', {
-        scrollWidth: document.documentElement.scrollWidth,
-        clientWidth: document.documentElement.clientWidth,
-        delta: docDelta,
-      });
-    }
-    
     setOverflowElements(found);
     setIsScanning(false);
-    
-    // Log to console
-    if (found.length > 0) {
-      console.group('[LayoutDebug] Overflow Elements Found');
-      found.forEach((item, i) => {
-        console.log(`${i + 1}. <${item.tagName}> delta: ${item.delta}px`, {
-          element: item.element,
-          scrollWidth: item.scrollWidth,
-          clientWidth: item.clientWidth,
-          class: item.className,
-        });
-      });
-      console.groupEnd();
-    } else {
-      console.log('[LayoutDebug] ✓ No overflow detected');
-    }
   }, [layoutDebugMode]);
 
   // Clear highlights when debug mode is turned off
