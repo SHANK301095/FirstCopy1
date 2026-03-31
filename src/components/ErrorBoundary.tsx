@@ -46,7 +46,7 @@ export class ErrorBoundary extends Component<Props, State> {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(regs => {
         regs.forEach(r => r.unregister());
-      });
+      }).catch(() => {});
     }
     if ('caches' in window) {
       caches.keys().then(names => {

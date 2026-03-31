@@ -6,6 +6,7 @@
  */
 
 import { useState, useCallback, useEffect, useMemo } from 'react';
+import { PageErrorBoundary } from '@/components/error/PageErrorBoundary';
 import { 
   Upload, 
   FileSpreadsheet, 
@@ -829,6 +830,7 @@ export default function DataManager() {
   };
 
   return (
+    <PageErrorBoundary pageName="Data Manager">
     <div className="space-y-6 animate-fade-in">
       {/* Import Wizard Modal */}
       <DataImportWizard 
@@ -1602,5 +1604,6 @@ export default function DataManager() {
         </DialogContent>
       </Dialog>
     </div>
+    </PageErrorBoundary>
   );
 }

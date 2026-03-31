@@ -4,6 +4,7 @@
  */
 
 import { useEffect, useRef } from 'react';
+import { secureLogger } from '@/lib/secureLogger';
 import { useAuth } from '@/contexts/AuthContext';
 import { performanceMonitor } from '@/lib/performanceMonitor';
 import { invalidatePremiumCache } from '@/hooks/usePremiumStatus';
@@ -35,7 +36,7 @@ export function useAppInit(config: AppInitConfig = {}) {
     }
 
     if (preloadRoutes && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(() => { console.log('🚀 App initialized'); });
+      window.requestIdleCallback(() => { secureLogger.info('app', 'App initialized'); });
     }
   }, [logPerformance, preloadRoutes]);
 

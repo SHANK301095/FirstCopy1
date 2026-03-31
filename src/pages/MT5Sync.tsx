@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
+import { PageErrorBoundary } from '@/components/error/PageErrorBoundary';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -301,6 +302,7 @@ export default function MT5Sync() {
   }
 
   return (
+    <PageErrorBoundary pageName="MT5 Sync">
     <div className="space-y-6 p-1">
       {/* Header */}
       <div className="flex items-center justify-between">
@@ -862,6 +864,7 @@ export default function MT5Sync() {
         </TabsContent>
       </Tabs>
     </div>
+    </PageErrorBoundary>
   );
 }
 

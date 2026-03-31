@@ -6,6 +6,7 @@
  */
 
 import { useState, useCallback, useMemo, useEffect } from 'react';
+import { PageErrorBoundary } from '@/components/error/PageErrorBoundary';
 import { 
   Play, 
   Pause, 
@@ -537,6 +538,7 @@ export default function BulkTester() {
     : 0;
 
   return (
+    <PageErrorBoundary pageName="Bulk Tester">
     <div className="space-y-6 animate-fade-in pb-20">
       
       <div className="flex items-center justify-between gap-4">
@@ -1349,5 +1351,6 @@ export default function BulkTester() {
         onUpload={addItems}
       />
     </div>
+    </PageErrorBoundary>
   );
 }

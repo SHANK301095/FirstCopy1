@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { secureLogger } from '@/lib/secureLogger';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 
@@ -158,7 +159,7 @@ export function useCloudDataUpload(): UseCloudDataUploadReturn {
       const compressedSize = compressedBlob.size;
       const compressionRatio = ((1 - compressedSize / originalSize) * 100).toFixed(1);
       
-      console.log(`Compression: ${(originalSize / 1024 / 1024).toFixed(1)}MB → ${(compressedSize / 1024 / 1024).toFixed(1)}MB (${compressionRatio}% saved)`);
+      secureLogger.info('upload', `Compression: ${(originalSize / 1024 / 1024).toFixed(1)}MB → ${(compressedSize / 1024 / 1024).toFixed(1)}MB (${compressionRatio}% saved)`);
 
       // Stage 2: Upload compressed file
       setProgress({ loaded: 40, total: 100, percent: 40, stage: 'uploading' });
